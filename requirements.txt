@@ -1,0 +1,6 @@
+six
+setuptools
+flask
+flask_session
+flask_sqlalchemy
+gunicorn
