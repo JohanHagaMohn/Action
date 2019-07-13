@@ -1,7 +1,5 @@
-six
-setuptools
-psycopg2-binary
 flask
 flask_session
 flask_sqlalchemy
+tempfile
 gunicorn
