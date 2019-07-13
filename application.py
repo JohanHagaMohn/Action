@@ -10,5 +10,4 @@ Session(app)
 
 @app.route("/")
 def index():
-    db.Model()
     return render_template("index.html"), 200
