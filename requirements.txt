@@ -1,4 +1,6 @@
+setuptools
 flask
 flask_session
+flask-login
 flask_sqlalchemy
 gunicorn
