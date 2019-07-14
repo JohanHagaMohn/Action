@@ -1,3 +1,4 @@
+six
 setuptools
 flask
 flask_session
