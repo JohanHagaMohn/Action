@@ -25,4 +25,4 @@ def register_post():
 
 @auth.route('/logout', methods=["GET"])
 def logout():
-    return redirect(url_for('main.index')), 200
+    return redirect(url_for('main.index')), 302
