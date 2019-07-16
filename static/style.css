@@ -34,8 +34,8 @@ header {
   display: inline-grid;
   width: 100%;
   height: 9vh;
-  -ms-grid-columns: 5fr 13fr 3fr 3fr 3fr 2fr;
-      grid-template-columns: 5fr 13fr 3fr 3fr 3fr 2fr;
+  -ms-grid-columns: 6fr 12fr 3fr 3fr 3fr 2fr;
+      grid-template-columns: 6fr 12fr 3fr 3fr 3fr 2fr;
       grid-template-areas: "logo . about register login settings";
   -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
@@ -80,7 +80,11 @@ header a::after {
       align-self: flex-end;
   justify-self: stretch;
   width: calc(3 / 29 * 100vw);
-  background: #2296e9;
+  background: #3ad1fe;
+}
+
+header a#logo::after {
+  width: calc(4 / 29 * 100vw);
 }
 
 header a:hover::after {
@@ -89,14 +93,21 @@ header a:hover::after {
           transform: scaleY(2.5) translateY(-0.1125vh);
 }
 
+header object {
+  display: none;
+  visibility: hidden;
+}
+
 header #logo {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: logo;
 }
 
-header #logo img {
-  height: 4vh;
+header #logo * {
+  display: initial;
+  visibility: visible;
+  height: 7vh;
   width: auto;
 }
 
@@ -125,28 +136,30 @@ header #settingicon {
 }
 
 header #settingicon #bars {
+  display: initial;
+  visibility: visible;
   -webkit-transition: opacity 150ms ease-in, -webkit-transform 150ms ease-in;
   transition: opacity 150ms ease-in, -webkit-transform 150ms ease-in;
   transition: opacity 150ms ease-in, transform 150ms ease-in;
   transition: opacity 150ms ease-in, transform 150ms ease-in, -webkit-transform 150ms ease-in;
   color: #777;
-  opacity: 0.5;
-  height: 3vh;
+  opacity: 0.25;
+  height: 3.25vh;
   width: auto;
 }
 
 header #settingicon :hover {
   cursor: pointer;
-  opacity: 1;
+  opacity: 0.5;
 }
 
 header #settingicon:hover {
   cursor: pointer;
-  opacity: 1;
 }
 
 header #settingicon:hover #bars {
-  -webkit-transform: scale(calc(4 / 3));
-          transform: scale(calc(4 / 3));
+  opacity: 0.5;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 /*# sourceMappingURL=style.css.map */
