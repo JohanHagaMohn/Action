@@ -1,11 +1,16 @@
-* {
+body {
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 200;
+  overflow: hidden;
   background-color: #fff;
+}
+
+main {
+  height: -webkit-fill-available;
 }
 
 h1 {
@@ -19,6 +24,13 @@ h2 {
 h3 {
   font-weight: 400;
   font-size: 3vh;
+  color: #777;
+  opacity: 0.5;
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 2.5vh;
   color: #777;
   opacity: 0.5;
 }
@@ -37,8 +49,8 @@ header {
   -ms-grid-columns: 6fr 12fr 3fr 3fr 3fr 2fr;
       grid-template-columns: 6fr 12fr 3fr 3fr 3fr 2fr;
       grid-template-areas: "logo . about register login settings";
-  -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
-          box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.5);
 }
 
 header * {
@@ -69,8 +81,8 @@ header a::after {
   transition: opacity 150ms ease-in, transform 150ms ease-in;
   transition: opacity 150ms ease-in, transform 150ms ease-in, -webkit-transform 150ms ease-in;
   height: 0.09vh;
-  -webkit-transform: translateY(-0.1125vh);
-          transform: translateY(-0.1125vh);
+  -webkit-transform: translateY(-0.375vh);
+          transform: translateY(-0.375vh);
   opacity: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -89,13 +101,8 @@ header a#logo::after {
 
 header a:hover::after {
   opacity: 1;
-  -webkit-transform: scaleY(2.5) translateY(-0.1125vh);
-          transform: scaleY(2.5) translateY(-0.1125vh);
-}
-
-header object {
-  display: none;
-  visibility: hidden;
+  -webkit-transform: scaleY(2.5) translateY(-0.35vh);
+          transform: scaleY(2.5) translateY(-0.35vh);
 }
 
 header #logo {
@@ -107,6 +114,7 @@ header #logo {
 header #logo * {
   display: initial;
   visibility: visible;
+  opacity: 1;
   height: 7vh;
   width: auto;
 }
@@ -129,6 +137,15 @@ header #login {
   grid-area: login;
 }
 
+header object,
+header .label,
+header .container {
+  display: none;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
 header #settingicon {
   -ms-grid-row: 1;
   -ms-grid-column: 6;
@@ -138,26 +155,68 @@ header #settingicon {
 header #settingicon #bars {
   display: initial;
   visibility: visible;
+}
+
+header #settingicon object {
   -webkit-transition: opacity 150ms ease-in, -webkit-transform 150ms ease-in;
   transition: opacity 150ms ease-in, -webkit-transform 150ms ease-in;
   transition: opacity 150ms ease-in, transform 150ms ease-in;
   transition: opacity 150ms ease-in, transform 150ms ease-in, -webkit-transform 150ms ease-in;
   color: #777;
   opacity: 0.25;
-  height: 3.25vh;
-  width: auto;
+  height: 4vh;
+  width: calc(2 / 29 * 100vw);
 }
 
 header #settingicon :hover {
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 1;
+}
+
+header .container {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 9vh;
+  right: 0;
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  outline: 1px solid rgba(119, 119, 119, 0.25);
+  -webkit-box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
+          box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
+  height: 5vh;
+  width: calc(5 / 29 * 100vw);
+  -webkit-transition: opacity 150ms ease-in;
+  transition: opacity 150ms ease-in;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .container * {
+  color: #777;
+  opacity: 1;
+  -webkit-transition: opacity 150ms ease-in, -webkit-transform 150ms ease-in;
+  transition: opacity 150ms ease-in, -webkit-transform 150ms ease-in;
+  transition: opacity 150ms ease-in, transform 150ms ease-in;
+  transition: opacity 150ms ease-in, transform 150ms ease-in, -webkit-transform 150ms ease-in;
+}
+
+header .container object {
+  height: 3vh;
+  width: auto;
 }
 
 header #settingicon:hover {
   cursor: pointer;
 }
 
-header #settingicon:hover #bars {
+header #settingicon:hover object {
   opacity: 0.5;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);

@@ -1,15 +1,21 @@
 $link: #777;
 $background: #fff;
+$contrast: rgb(0, 0, 0);
 $highlight: #3ad1fe;
 
-* {
+body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
         Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 200;
+    overflow: hidden;
     background-color: $background;
+}
+
+main {
+    height: -webkit-fill-available;
 }
 h1 {
     font-weight: 600;
@@ -20,6 +26,12 @@ h2 {
 h3 {
     font-weight: 400;
     font-size: 3vh;
+    color: $link;
+    opacity: 0.5;
+}
+h4 {
+    font-weight: 300;
+    font-size: 2.5vh;
     color: $link;
     opacity: 0.5;
 }
@@ -34,7 +46,7 @@ header {
     height: 9vh;
     grid-template-columns: 6fr 12fr 3fr 3fr 3fr 2fr;
     grid-template-areas: "logo . about register login settings";
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 2px -2px rgba($contrast, 0.5);
     * {
         display: flex;
         justify-content: center;
@@ -52,7 +64,7 @@ header {
         content: "";
         transition: opacity 150ms ease-in, transform 150ms ease-in;
         height: 0.09vh;
-        transform: translateY(-0.1125vh);
+        transform: translateY(-0.375vh);
         opacity: 0;
         display: flex;
         position: absolute;
@@ -66,17 +78,14 @@ header {
     }
     a:hover::after {
         opacity: 1;
-        transform: scaleY(2.5) translateY(-0.1125vh);
-    }
-    object {
-        display: none;
-        visibility: hidden;
+        transform: scaleY(2.5) translateY(-0.35vh);
     }
     #logo {
         grid-area: logo;
         * {
             display: initial;
             visibility: visible;
+            opacity: 1;
             height: 7vh;
             width: auto;
         }
@@ -90,25 +99,59 @@ header {
     #login {
         grid-area: login;
     }
+    object,
+    .label,
+    .container {
+        display: none;
+        visibility: hidden;
+        pointer-events: none;
+        opacity: 0;
+    }
     #settingicon {
         grid-area: settings;
         #bars {
             display: initial;
             visibility: visible;
+        }
+        object {
             transition: opacity 150ms ease-in, transform 150ms ease-in;
             color: $link;
             opacity: 0.25;
-            height: 3.25vh;
-            width: auto;
+            height: 4vh;
+            width: calc(2 / 29 * 100vw);
         }
         :hover {
             cursor: pointer;
-            opacity: 0.5;
+            opacity: 1;
+        }
+    }
+    .container {
+        position: absolute;
+        display: flex;
+        top: 9vh;
+        right: 0;
+        transform: translateY(1px);
+        outline: 1px solid rgba($link, 0.25);
+        box-shadow: -2px 2px 2px -2px rgba($contrast, 0.5);
+        height: 5vh;
+        width: calc(5 / 29 * 100vw);
+        transition: opacity 150ms ease-in;
+        justify-content: space-evenly;
+        justify-items: center;
+        align-items: center;
+        * {
+            color: $link;
+            opacity: 1;
+            transition: opacity 150ms ease-in, transform 150ms ease-in;
+        }
+        object {
+            height: 3vh;
+            width: auto;
         }
     }
     #settingicon:hover {
         cursor: pointer;
-        #bars {
+        object {
             opacity: 0.5;
             transform: scale(1.2);
         }

@@ -55,7 +55,7 @@
                 <h3>Login</h3>
             </a>
             <!-- Icons provided by fontawesome.com -->
-            <div id="settingicon" onclick="openMenu(this.id)">
+            <div id="settingicon">
                 <object
                     id="bars"
                     type="image/svg+xml"
@@ -70,7 +70,8 @@
                 >
             </div>
             <div id="icons">
-                <div id="light">
+                <div class="container">
+                    <h4 class="label">Night Mode:</h4>
                     <object
                         id="sun"
                         type="image/svg+xml"
@@ -86,6 +87,8 @@
                 </div>
             </div>
         </header>
-        {% block body %}{% endblock %}
+        <main>
+            {% block body %}{% endblock %}
+        </main>
     </body>
 </html>
