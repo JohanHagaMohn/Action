@@ -5,33 +5,35 @@ body {
           box-sizing: border-box;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 200;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #fff;
 }
 
 main {
-  height: -webkit-fill-available;
+  height: 100%;
 }
 
 h1 {
   font-weight: 600;
+  font-size: 5vh;
 }
 
 h2 {
   font-weight: 500;
+  font-size: 4vh;
 }
 
 h3 {
   font-weight: 400;
   font-size: 3vh;
-  color: #777;
+  color: #999;
   opacity: 0.5;
 }
 
 h4 {
   font-weight: 300;
   font-size: 2.5vh;
-  color: #777;
+  color: #999;
   opacity: 0.5;
 }
 
@@ -42,13 +44,17 @@ a:hover {
 }
 
 header {
+  position: -webkit-sticky;
+  position: sticky;
   display: -ms-inline-grid;
   display: inline-grid;
   width: 100%;
   height: 9vh;
   -ms-grid-columns: 6fr 12fr 3fr 3fr 3fr 2fr;
       grid-template-columns: 6fr 12fr 3fr 3fr 3fr 2fr;
-      grid-template-areas: "logo . about register login settings";
+      grid-template-areas: "logo . about register login settings" ". . . . dropdown dropdown";
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
   -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.5);
           box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.5);
 }
@@ -138,11 +144,15 @@ header #login {
 }
 
 header object,
+header .label {
+  pointer-events: none;
+}
+
+header object,
 header .label,
 header .container {
   display: none;
   visibility: hidden;
-  pointer-events: none;
   opacity: 0;
 }
 
@@ -150,6 +160,7 @@ header #settingicon {
   -ms-grid-row: 1;
   -ms-grid-column: 6;
   grid-area: settings;
+  color: #999;
 }
 
 header #settingicon #bars {
@@ -162,33 +173,35 @@ header #settingicon object {
   transition: opacity 150ms ease-in, -webkit-transform 150ms ease-in;
   transition: opacity 150ms ease-in, transform 150ms ease-in;
   transition: opacity 150ms ease-in, transform 150ms ease-in, -webkit-transform 150ms ease-in;
-  color: #777;
-  opacity: 0.25;
+  color: #999;
+  opacity: 0.5;
   height: 4vh;
   width: calc(2 / 29 * 100vw);
 }
 
-header #settingicon :hover {
-  cursor: pointer;
-  opacity: 1;
+header #icons {
+  -ms-grid-row: 2;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 2;
+  grid-area: dropdown;
+  -webkit-transform: translateY(-0.45vh);
+          transform: translateY(-0.45vh);
 }
 
 header .container {
-  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  top: 9vh;
-  right: 0;
-  -webkit-transform: translateY(1px);
-          transform: translateY(1px);
-  outline: 1px solid rgba(119, 119, 119, 0.25);
+  outline: 1px solid rgba(153, 153, 153, 0.25);
   -webkit-box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
           box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
-  height: 5vh;
+  height: 6vh;
   width: calc(5 / 29 * 100vw);
-  -webkit-transition: opacity 150ms ease-in;
-  transition: opacity 150ms ease-in;
+  -webkit-transition: opacity 150ms ease-in, -webkit-transform 100ms ease-in;
+  transition: opacity 150ms ease-in, -webkit-transform 100ms ease-in;
+  transition: opacity 150ms ease-in, transform 100ms ease-in;
+  transition: opacity 150ms ease-in, transform 100ms ease-in, -webkit-transform 100ms ease-in;
+  background-color: #fff;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -199,12 +212,14 @@ header .container {
 }
 
 header .container * {
-  color: #777;
-  opacity: 1;
   -webkit-transition: opacity 150ms ease-in, -webkit-transform 150ms ease-in;
   transition: opacity 150ms ease-in, -webkit-transform 150ms ease-in;
   transition: opacity 150ms ease-in, transform 150ms ease-in;
   transition: opacity 150ms ease-in, transform 150ms ease-in, -webkit-transform 150ms ease-in;
+  display: initial;
+  visibility: visible;
+  color: #999;
+  opacity: 0.5;
 }
 
 header .container object {
@@ -217,8 +232,151 @@ header #settingicon:hover {
 }
 
 header #settingicon:hover object {
-  opacity: 0.5;
+  opacity: 1;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+header .container:hover {
+  cursor: pointer;
+}
+
+header .container:hover * {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 1280px) {
+  header {
+    -ms-grid-columns: 6fr 20fr 3fr 3fr 3fr 2fr;
+        grid-template-columns: 6fr 20fr 3fr 3fr 3fr 2fr;
+        grid-template-areas: "logo . about register login settings" ". . dropdown dropdown dropdown dropdown";
+    -ms-grid-rows: auto auto;
+        grid-template-rows: auto auto;
+  }
+  header a::after {
+    width: calc(3 / 37 * 100vw);
+  }
+  header a#logo::after {
+    width: calc(4 / 37 * 100vw);
+  }
+  header #settingicon object {
+    width: calc(2 / 37 * 100vw);
+  }
+  header .container {
+    width: calc(5 / 37 * 100vw);
+    outline: 1px solid rgba(153, 153, 153, 0.25);
+    -webkit-box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
+            box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
+    border-top: none;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+  header {
+    -ms-grid-columns: 6fr 8fr 3fr 3fr 3fr 2fr;
+        grid-template-columns: 6fr 8fr 3fr 3fr 3fr 2fr;
+        grid-template-areas: "logo . about register login settings" ". . . . dropdown dropdown";
+    -ms-grid-rows: auto auto;
+        grid-template-rows: auto auto;
+  }
+  header a::after {
+    width: calc(3 / 25 * 100vw);
+  }
+  header a#logo::after {
+    width: calc(4 / 25 * 100vw);
+  }
+  header #settingicon object {
+    width: calc(2 / 25 * 100vw);
+  }
+  header .container {
+    width: calc(5 / 25 * 100vw);
+    outline: 1px solid rgba(153, 153, 153, 0.25);
+    -webkit-box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
+            box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
+    border-top: none;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+  header {
+    -ms-grid-columns: 6fr 3fr 3fr 3fr 3fr 2fr;
+        grid-template-columns: 6fr 3fr 3fr 3fr 3fr 2fr;
+        grid-template-areas: "logo . about register login settings" ". . dropdown dropdown dropdown dropdown";
+    -ms-grid-rows: auto auto;
+        grid-template-rows: auto auto;
+  }
+  header a::after {
+    width: calc(3 / 20 * 100vw);
+  }
+  header a#logo::after {
+    width: calc(4 / 20 * 100vw);
+  }
+  header #settingicon object {
+    width: calc(2 / 20 * 100vw);
+  }
+  header .container {
+    height: 9vh;
+    width: calc(11 / 20 * 100vw);
+    outline: 1px solid rgba(153, 153, 153, 0.25);
+    -webkit-box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
+            box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
+    border-top: none;
+  }
+  header .container h4 {
+    font-size: 3vh;
+  }
+  header .container object {
+    height: 3vh;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  header {
+    -ms-grid-columns: 6fr 2fr 2fr;
+        grid-template-columns: 6fr 2fr 2fr;
+        grid-template-areas: "logo . settings" "about about about" "register register register" "login login login" "dropdown dropdown dropdown";
+    -ms-grid-rows: 9vh auto auto auto auto;
+        grid-template-rows: 9vh auto auto auto auto;
+    height: 100%;
+  }
+  header a::after {
+    width: 30vw;
+    left: 35vw;
+  }
+  header a:hover {
+    -webkit-transform: translateY(1px);
+            transform: translateY(1px);
+  }
+  header a#logo::after {
+    width: calc(4 / 10 * 100vw);
+    top: 9.45vh;
+    left: 9%;
+  }
+  header .container {
+    display: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    outline: none;
+    width: 30vw;
+    border-top: 1px solid rgba(153, 153, 153, 0.5);
+    height: 9vh;
+  }
+  header .container .label {
+    font-size: 2.5vh;
+  }
+  header .container object {
+    height: 2.5vh;
+  }
+  header #logo {
+    height: 9vh;
+  }
+  header #about,
+  header #register,
+  header #login {
+    display: none;
+    position: relative;
+    left: 0;
+    width: 100vw;
+  }
 }
 /*# sourceMappingURL=style.css.map */
