@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", () => {
     var smallMenu = false;
     var bodyColor = document.body.style.backgroundColor;
     function showContainers(opacity) {
-        /** Toggles menu items on small screens*/
+        /** Toggles menu items on small screens */
         if (window.innerWidth < 540 && smallMenu == false && opacity == 1) {
             document.querySelector("#about").style.display = "initial";
             document.querySelector("#register").style.display = "initial";

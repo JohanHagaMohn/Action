@@ -93,7 +93,6 @@ header a::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: absolute;
   -ms-flex-item-align: end;
       align-self: flex-end;
   justify-self: stretch;
@@ -102,6 +101,7 @@ header a::after {
 }
 
 header a#logo::after {
+  position: absolute;
   width: calc(4 / 29 * 100vw);
 }
 
@@ -249,9 +249,6 @@ header .container:hover * {
   header {
     -ms-grid-columns: 6fr 20fr 3fr 3fr 3fr 2fr;
         grid-template-columns: 6fr 20fr 3fr 3fr 3fr 2fr;
-        grid-template-areas: "logo . about register login settings" ". . dropdown dropdown dropdown dropdown";
-    -ms-grid-rows: auto auto;
-        grid-template-rows: auto auto;
   }
   header a::after {
     width: calc(3 / 37 * 100vw);
@@ -267,7 +264,11 @@ header .container:hover * {
     outline: 1px solid rgba(153, 153, 153, 0.25);
     -webkit-box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
             box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
-    border-top: none;
+  }
+  header #about,
+  header #register,
+  header #login {
+    display: inherit !important;
   }
 }
 
@@ -275,9 +276,6 @@ header .container:hover * {
   header {
     -ms-grid-columns: 6fr 8fr 3fr 3fr 3fr 2fr;
         grid-template-columns: 6fr 8fr 3fr 3fr 3fr 2fr;
-        grid-template-areas: "logo . about register login settings" ". . . . dropdown dropdown";
-    -ms-grid-rows: auto auto;
-        grid-template-rows: auto auto;
   }
   header a::after {
     width: calc(3 / 25 * 100vw);
@@ -293,40 +291,81 @@ header .container:hover * {
     outline: 1px solid rgba(153, 153, 153, 0.25);
     -webkit-box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
             box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
-    border-top: none;
+  }
+  header #about,
+  header #register,
+  header #login {
+    display: inherit !important;
   }
 }
 
-@media only screen and (min-width: 480px) and (max-width: 768px) {
+@media only screen and (min-width: 540px) and (max-width: 768px) {
   header {
     -ms-grid-columns: 6fr 3fr 3fr 3fr 3fr 2fr;
         grid-template-columns: 6fr 3fr 3fr 3fr 3fr 2fr;
         grid-template-areas: "logo . about register login settings" ". . dropdown dropdown dropdown dropdown";
-    -ms-grid-rows: auto auto;
-        grid-template-rows: auto auto;
   }
-  header a::after {
-    width: calc(3 / 20 * 100vw);
+  header a:not(#logo)::after {
+    width: calc(3 / 20 * 100vw) !important;
   }
   header a#logo::after {
-    width: calc(4 / 20 * 100vw);
+    width: calc(5 / 20 * 100vw);
   }
   header #settingicon object {
     width: calc(2 / 20 * 100vw);
   }
+  header #about,
+  header #register,
+  header #login {
+    display: inherit !important;
+  }
+  header #logo {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: logo;
+  }
+  header #about {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: about;
+  }
+  header #register {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+    grid-area: register;
+  }
+  header #login {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+    grid-area: login;
+  }
+  header #settingicon {
+    -ms-grid-row: 1;
+    -ms-grid-column: 6;
+    grid-area: settings;
+  }
+  header #icons {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 4;
+    grid-area: dropdown;
+  }
   header .container {
-    height: 9vh;
+    height: 6vh;
     width: calc(11 / 20 * 100vw);
     outline: 1px solid rgba(153, 153, 153, 0.25);
     -webkit-box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
             box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
-    border-top: none;
   }
   header .container h4 {
     font-size: 3vh;
   }
   header .container object {
     height: 3vh;
+  }
+  header a:not(#logo)::after {
+    width: initial;
+    left: initial;
   }
 }
 
@@ -339,18 +378,49 @@ header .container:hover * {
         grid-template-rows: 9vh auto auto auto auto;
     height: 100%;
   }
-  header a::after {
-    width: 30vw;
-    left: 35vw;
+  header #logo {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: logo;
   }
-  header a:hover {
-    -webkit-transform: translateY(1px);
-            transform: translateY(1px);
+  header #about {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: about;
+  }
+  header #register {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: register;
+  }
+  header #login {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: login;
+  }
+  header #settingicon {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: settings;
+  }
+  header #icons {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: dropdown;
   }
   header a#logo::after {
     width: calc(4 / 10 * 100vw);
     top: 9.45vh;
-    left: 9%;
+  }
+  header a:not(#logo)::after {
+    width: 30vw;
+    left: 35vw;
+    position: absolute;
+    bottom: -0.25vh;
   }
   header .container {
     display: none;
@@ -359,7 +429,6 @@ header .container:hover * {
     outline: none;
     width: 30vw;
     border-top: 1px solid rgba(153, 153, 153, 0.5);
-    height: 9vh;
   }
   header .container .label {
     font-size: 2.5vh;
@@ -367,13 +436,13 @@ header .container:hover * {
   header .container object {
     height: 2.5vh;
   }
-  header #logo {
-    height: 9vh;
-  }
   header #about,
   header #register,
   header #login {
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: inherit;
     position: relative;
     left: 0;
     width: 100vw;
