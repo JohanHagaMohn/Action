@@ -1,0 +1,88 @@
+main {
+    display: grid;
+    //height: 100%;
+    grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
+    grid-template-areas:
+        ". . . . . . . . . . . . ."
+        ". . . main main main main main main main . . ."
+        ". . . . . . arrow . . . . . ."
+        ". . . . . . . . . . . . ."
+        ". . . . lifegoals lifegoals lifegoals lifegoals lifegoals . . . ."
+        ". branch1 branch1 branch1 . task1 . task2 . task3 . task4 ."
+        ". merged merged merged . branch2 branch2 branch2 . task5 . task6 ."
+        ". . . . . . . . . . . . ."
+        ". . . focus focus focus focus focus focus focus . . ."
+        ". previous . . task task task task task . . next ."
+        ". . . . . . . . . . . . ."
+        ". . . message message message message message message message . . ."
+        ". . . register register register or login login login . . ."
+        ". . . . . . . . . . . . .";
+    grid-template-rows: 5vh 76vh 10vh 10vh 20vh 40vh 40vh 10vh 20vh 80vh 10vh 20vh 70vh 10vh;
+    justify-content: center;
+    div {
+        background-color: aquamarine;
+        height: auto;
+        width: auto;
+        display: grid;
+    }
+    #main {
+        grid-area: main;
+    }
+    #arrow {
+        grid-area: arrow;
+    }
+    #lifegoals {
+        grid-area: lifegoals;
+    }
+    #branch1 {
+        grid-area: branch1;
+    }
+    #task1 {
+        grid-area: task1;
+    }
+    #task2 {
+        grid-area: task2;
+    }
+    #task3 {
+        grid-area: task3;
+    }
+    #task4 {
+        grid-area: task4;
+    }
+    #merged {
+        grid-area: merged;
+    }
+    #branch2 {
+        grid-area: branch2;
+    }
+    #task5 {
+        grid-area: task5;
+    }
+    #task6 {
+        grid-area: task6;
+    }
+    #focus {
+        grid-area: focus;
+    }
+    #previous {
+        grid-area: previous;
+    }
+    #task {
+        grid-area: task;
+    }
+    #next {
+        grid-area: next;
+    }
+    #message {
+        grid-area: message;
+    }
+    #register {
+        grid-area: register;
+    }
+    #or {
+        grid-area: or;
+    }
+    #login {
+        grid-area: login;
+    }
+}

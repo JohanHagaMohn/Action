@@ -78,7 +78,7 @@ window.addEventListener("DOMContentLoaded", () => {
             showMenu(0);
         }
     });
-    document.querySelector("#nightMode").addEventListener("click", () => {
+    function changeStyle() {
         /** Deselects menu and changes styling on nightMode click */
         showMenu(0);
         document.querySelector("main").style.color = bodyColor;
@@ -95,6 +95,10 @@ window.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".container").forEach(element => {
             element.style.backgroundColor = bodyColor;
         });
+    }
+
+    document.querySelector("#nightMode").addEventListener("click", () => {
+        changeStyle();
     });
     document.getElementById("settingicon").addEventListener("click", () => {
         /** Inverts menuClicked boolean and displays menu accordingly */

@@ -192,6 +192,8 @@ header .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transform: translateY(-0.1vh);
+          transform: translateY(-0.1vh);
   outline: 1px solid rgba(153, 153, 153, 0.25);
   -webkit-box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
           box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
@@ -428,7 +430,7 @@ header .container:hover * {
             box-shadow: none;
     outline: none;
     width: 30vw;
-    border-top: 1px solid rgba(153, 153, 153, 0.5);
+    border-top: 0.09vh solid rgba(153, 153, 153, 0.5);
   }
   header .container .label {
     font-size: 2.5vh;
@@ -439,9 +441,7 @@ header .container:hover * {
   header #about,
   header #register,
   header #login {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     background-color: inherit;
     position: relative;
     left: 0;

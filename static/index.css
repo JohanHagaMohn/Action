@@ -1,0 +1,151 @@
+main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
+      grid-template-areas: ". . . . . . . . . . . . ." ". . . main main main main main main main . . ." ". . . . . . arrow . . . . . ." ". . . . . . . . . . . . ." ". . . . lifegoals lifegoals lifegoals lifegoals lifegoals . . . ." ". branch1 branch1 branch1 . task1 . task2 . task3 . task4 ." ". merged merged merged . branch2 branch2 branch2 . task5 . task6 ." ". . . . . . . . . . . . ." ". . . focus focus focus focus focus focus focus . . ." ". previous . . task task task task task . . next ." ". . . . . . . . . . . . ." ". . . message message message message message message message . . ." ". . . register register register or login login login . . ." ". . . . . . . . . . . . .";
+  -ms-grid-rows: 5vh 76vh 10vh 10vh 20vh 40vh 40vh 10vh 20vh 80vh 10vh 20vh 70vh 10vh;
+      grid-template-rows: 5vh 76vh 10vh 10vh 20vh 40vh 40vh 10vh 20vh 80vh 10vh 20vh 70vh 10vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main div {
+  background-color: aquamarine;
+  height: auto;
+  width: auto;
+  display: -ms-grid;
+  display: grid;
+}
+
+main #main {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 7;
+  grid-area: main;
+}
+
+main #arrow {
+  -ms-grid-row: 3;
+  -ms-grid-column: 7;
+  grid-area: arrow;
+}
+
+main #lifegoals {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: lifegoals;
+}
+
+main #branch1 {
+  -ms-grid-row: 6;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-area: branch1;
+}
+
+main #task1 {
+  -ms-grid-row: 6;
+  -ms-grid-column: 6;
+  grid-area: task1;
+}
+
+main #task2 {
+  -ms-grid-row: 6;
+  -ms-grid-column: 8;
+  grid-area: task2;
+}
+
+main #task3 {
+  -ms-grid-row: 6;
+  -ms-grid-column: 10;
+  grid-area: task3;
+}
+
+main #task4 {
+  -ms-grid-row: 6;
+  -ms-grid-column: 12;
+  grid-area: task4;
+}
+
+main #merged {
+  -ms-grid-row: 7;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-area: merged;
+}
+
+main #branch2 {
+  -ms-grid-row: 7;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 3;
+  grid-area: branch2;
+}
+
+main #task5 {
+  -ms-grid-row: 7;
+  -ms-grid-column: 10;
+  grid-area: task5;
+}
+
+main #task6 {
+  -ms-grid-row: 7;
+  -ms-grid-column: 12;
+  grid-area: task6;
+}
+
+main #focus {
+  -ms-grid-row: 9;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 7;
+  grid-area: focus;
+}
+
+main #previous {
+  -ms-grid-row: 10;
+  -ms-grid-column: 2;
+  grid-area: previous;
+}
+
+main #task {
+  -ms-grid-row: 10;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: task;
+}
+
+main #next {
+  -ms-grid-row: 10;
+  -ms-grid-column: 12;
+  grid-area: next;
+}
+
+main #message {
+  -ms-grid-row: 12;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 7;
+  grid-area: message;
+}
+
+main #register {
+  -ms-grid-row: 13;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 3;
+  grid-area: register;
+}
+
+main #or {
+  -ms-grid-row: 13;
+  -ms-grid-column: 7;
+  grid-area: or;
+}
+
+main #login {
+  -ms-grid-row: 13;
+  -ms-grid-column: 8;
+  -ms-grid-column-span: 3;
+  grid-area: login;
+}
+/*# sourceMappingURL=index.css.map */

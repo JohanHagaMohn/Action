@@ -1,19 +1,27 @@
 from flask import Flask
-from flask_session import Session
 from flask_login import LoginManager
-import config
-from models import *
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('config.Development')
-    login_manager = LoginManager()
 
-    with app.app_context():
-        db.init_app(app)
-        login_manager.init_app(app)
-        Session(app)
+    from config import Development
+    app.config.from_object(Development)
+
+    db.init_app(app)
+
+    login_manager = LoginManager()
+    login_manager.login_view = "auth.login"
+    login_manager.init_app(app)
+
+    from models import Users
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return Users.query.get(int(user_id))
 
     from main import main
     app.register_blueprint(main)
