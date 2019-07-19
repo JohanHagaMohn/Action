@@ -1,29 +1,49 @@
 {% extends "layout.html" %} {% block head %}
 <title>Action - Home</title>
 <link rel="stylesheet" href="/static/index.css" />
+<script type="text/javascript" src="/static/index.js"></script>
 {% endblock %} {% block body %}
-<div id="main">
-    <h1>Task manager</h1>
-    <h1>-Reinvented</h1>
-</div>
-<div id="arrow"></div>
-<div id="lifegoals"></div>
-<div id="branch1"></div>
-<div id="task1"></div>
-<div id="task2"></div>
-<div id="task3"></div>
-<div id="task4"></div>
-<div id="merged"></div>
-<div id="branch2"></div>
-<div id="task5"></div>
-<div id="task6"></div>
-<div id="focus"></div>
-<div id="previous"></div>
-<div id="task"></div>
-<div id="next"></div>
-<div id="message"></div>
-<div id="register"></div>
-<div id="or"></div>
-<div id="login"></div>
+<div id="landing"></div>
+<section id="intro">
+    <div id="title">
+        <h1 id="text1">Your task manager...</h1>
+        <div id="carousel">
+            <
+        </div>
+        <h1 id="text2">...reinvented.</h1>
+    </div>
+    <a id="arrow" href="#explanation">
+        <object
+            id="down"
+            type="image/svg+xml"
+            data="/static/chevron-down-solid.svg"
+            >&#8595;</object
+        >
+    </a>
+</section>
+<section id="explanation">
+    <div id="lifegoals"></div>
+    <div id="branch1"></div>
+    <div id="task1"></div>
+    <div id="task2"></div>
+    <div id="task3"></div>
+    <div id="task4"></div>
+    <div id="merged"></div>
+    <div id="branch2"></div>
+    <div id="task5"></div>
+    <div id="task6"></div>
+</section>
+<section id="benefit">
+    <div id="focus"></div>
+    <div id="previous"></div>
+    <div id="task"></div>
+    <div id="next"></div>
+</section>
+<section id="join">
+    <div id="message"></div>
+    <div id="register"></div>
+    <div id="or"></div>
+    <div id="login"></div>
+</section>
 
 {% endblock %}

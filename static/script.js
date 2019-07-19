@@ -3,7 +3,7 @@ function eventFire(el, etype) {
     if (el.fireEvent) {
         el.fireEvent("on" + etype);
     } else {
-        var evObj = document.createEvent("MouseEvents");
+        let evObj = document.createEvent("MouseEvents");
         evObj.initEvent(etype, true, false);
         !el.dispatchEvent(evObj);
     }
@@ -22,12 +22,25 @@ function hideIcon(light, opacity) {
         label.innerHTML = "Dark Mode";
     }
 }
+/** Gets cookie by name, from stackoverflow.com/questions/5639346 */
+function getCookieValue(a) {
+    var b = document.cookie.match("(^|[^;]+)\\s*" + a + "\\s*=\\s*([^;]+)");
+    return b ? b.pop() : "";
+}
 
 window.addEventListener("DOMContentLoaded", () => {
     /** Declares header variables */
-    var menuClicked = false;
-    var smallMenu = false;
-    var bodyColor = document.body.style.backgroundColor;
+    let menuClicked = false;
+    let smallMenu = false;
+    const cookie = getCookieValue("style");
+    if (cookie != "") {
+        document.body.style.backgroundColor = cookie;
+    }
+    let bodyColor = document.body.style.backgroundColor;
+    document.querySelector("main").style.color =
+        bodyColor == "rgb(255, 255, 255)" || bodyColor == "#fff"
+            ? "#000"
+            : "#fff";
     function showContainers(opacity) {
         /** Toggles menu items on small screens */
         if (window.innerWidth < 540 && smallMenu == false && opacity == 1) {
@@ -64,7 +77,12 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     function showMenu(opacity) {
         /** Hides containers and svg */
-        hideIcon(bodyColor == "#fff" ? "sun" : "moon", opacity);
+        hideIcon(
+            bodyColor == "rgb(255, 255, 255)" || bodyColor == "#fff"
+                ? "sun"
+                : "moon",
+            opacity
+        );
         showContainers(opacity);
     }
     if (!bodyColor) {
@@ -81,8 +99,9 @@ window.addEventListener("DOMContentLoaded", () => {
     function changeStyle() {
         /** Deselects menu and changes styling on nightMode click */
         showMenu(0);
+        //console.log(bodyColor);
         document.querySelector("main").style.color = bodyColor;
-        if (bodyColor == "#fff") {
+        if (bodyColor == "rgb(255, 255, 255)" || bodyColor == "#fff") {
             bodyColor = "#000";
             document.querySelector("header").style.boxShadow =
                 "0 2px 2px -2px rgba(200, 200, 200, 0.5)";
@@ -91,6 +110,7 @@ window.addEventListener("DOMContentLoaded", () => {
             document.querySelector("header").style.boxShadow =
                 "0 2px 2px -2px rgba(0, 0, 0, 0.5)";
         }
+        //console.log(bodyColor);
         document.querySelector("body").style.backgroundColor = bodyColor;
         document.querySelectorAll(".container").forEach(element => {
             element.style.backgroundColor = bodyColor;
@@ -99,6 +119,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector("#nightMode").addEventListener("click", () => {
         changeStyle();
+        document.cookie = `style=${bodyColor}`;
     });
     document.getElementById("settingicon").addEventListener("click", () => {
         /** Inverts menuClicked boolean and displays menu accordingly */

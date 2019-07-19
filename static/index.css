@@ -1,151 +1,304 @@
+body {
+  overflow-y: hidden;
+}
+
 main {
+  background-color: inherit;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
-      grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
-      grid-template-areas: ". . . . . . . . . . . . ." ". . . main main main main main main main . . ." ". . . . . . arrow . . . . . ." ". . . . . . . . . . . . ." ". . . . lifegoals lifegoals lifegoals lifegoals lifegoals . . . ." ". branch1 branch1 branch1 . task1 . task2 . task3 . task4 ." ". merged merged merged . branch2 branch2 branch2 . task5 . task6 ." ". . . . . . . . . . . . ." ". . . focus focus focus focus focus focus focus . . ." ". previous . . task task task task task . . next ." ". . . . . . . . . . . . ." ". . . message message message message message message message . . ." ". . . register register register or login login login . . ." ". . . . . . . . . . . . .";
-  -ms-grid-rows: 5vh 76vh 10vh 10vh 20vh 40vh 40vh 10vh 20vh 80vh 10vh 20vh 70vh 10vh;
-      grid-template-rows: 5vh 76vh 10vh 10vh 20vh 40vh 40vh 10vh 20vh 80vh 10vh 20vh 70vh 10vh;
+      grid-template-areas: "intro" "explanation" "benefit" "join";
+  -ms-grid-columns: 100vw;
+      grid-template-columns: 100vw;
+  -ms-grid-rows: 91vh 125vh 125vh 120vh;
+      grid-template-rows: 91vh 125vh 125vh 120vh;
+}
+
+main #landing {
+  position: absolute;
+  z-index: 3;
+  background-color: inherit;
+  height: 100vh;
+  width: 100vw;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 500ms ease-in;
+  transition: opacity 500ms ease-in;
+}
+
+main #intro {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: intro;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: ". . ." ". title ." ". arrow .";
+  -ms-grid-columns: 3fr 14fr 3fr;
+      grid-template-columns: 3fr 14fr 3fr;
+  -ms-grid-rows: 6fr 75fr 10fr;
+      grid-template-rows: 6fr 75fr 10fr;
+  color: inherit;
+}
+
+main #intro #title {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: title;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "text1 text1 text1 text1 text1" "carousel carousel carousel carousel carousel" "text2 text2 text2 text2 text2";
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-rows: 1fr 2fr 1fr;
+      grid-template-rows: 1fr 2fr 1fr;
+  color: inherit;
+}
+
+main #intro #title h1 {
+  pointer-events: none;
+}
+
+main #intro #title * {
+  -webkit-transition: opacity 3000ms ease-out, -webkit-transform 1500ms ease-out;
+  transition: opacity 3000ms ease-out, -webkit-transform 1500ms ease-out;
+  transition: transform 1500ms ease-out, opacity 3000ms ease-out;
+  transition: transform 1500ms ease-out, opacity 3000ms ease-out, -webkit-transform 1500ms ease-out;
+  vertical-align: middle;
+  text-align: center;
+  opacity: 0;
+  color: inherit;
+}
+
+main #intro #title #text1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: text1;
+}
+
+main #intro #title #text2 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: text2;
+  -webkit-transform: translateX(35%);
+          transform: translateX(35%);
+}
+
+main #intro #arrow {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: arrow;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 25%;
+  height: 10vh;
 }
 
-main div {
-  background-color: aquamarine;
-  height: auto;
-  width: auto;
+main #intro #arrow:hover #down {
+  -webkit-transform: translateY(0.75vh);
+          transform: translateY(0.75vh);
+  opacity: 1;
+}
+
+main #intro #arrow #down {
+  -webkit-transition: opacity 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  -webkit-transform: translateY(-0.25vh);
+          transform: translateY(-0.25vh);
+  height: 5vh;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+main #explanation {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: explanation;
   display: -ms-grid;
   display: grid;
+      grid-template-areas: ". . . . . . . . . . . . ." ". . . lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals . . ." ". branch1 branch1 branch1 . task1 . task2 . task3 . task4 ." ". merged merged merged . branch2 branch2 branch2 . task5 . task6 .";
+  -ms-grid-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
+  -ms-grid-rows: 25fr 20fr 40fr 40fr;
+      grid-template-rows: 25fr 20fr 40fr 40fr;
 }
 
-main #main {
+main #explanation #lifegoals {
   -ms-grid-row: 2;
   -ms-grid-column: 4;
   -ms-grid-column-span: 7;
-  grid-area: main;
-}
-
-main #arrow {
-  -ms-grid-row: 3;
-  -ms-grid-column: 7;
-  grid-area: arrow;
-}
-
-main #lifegoals {
-  -ms-grid-row: 5;
-  -ms-grid-column: 5;
-  -ms-grid-column-span: 5;
   grid-area: lifegoals;
+  background-color: #88ffb4;
 }
 
-main #branch1 {
-  -ms-grid-row: 6;
+main #explanation #branch1 {
+  -ms-grid-row: 3;
   -ms-grid-column: 2;
   -ms-grid-column-span: 3;
   grid-area: branch1;
+  background-color: #ff88e3;
 }
 
-main #task1 {
-  -ms-grid-row: 6;
+main #explanation #branch1 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-area: branch1;
+  background-color: #ff88e3;
+}
+
+main #explanation #task1 {
+  -ms-grid-row: 3;
   -ms-grid-column: 6;
   grid-area: task1;
+  background-color: #fff588;
 }
 
-main #task2 {
-  -ms-grid-row: 6;
+main #explanation #task2 {
+  -ms-grid-row: 3;
   -ms-grid-column: 8;
   grid-area: task2;
+  background-color: #ffcf88;
 }
 
-main #task3 {
-  -ms-grid-row: 6;
+main #explanation #task3 {
+  -ms-grid-row: 3;
   -ms-grid-column: 10;
   grid-area: task3;
+  background-color: #ff9a88;
 }
 
-main #task4 {
-  -ms-grid-row: 6;
+main #explanation #task4 {
+  -ms-grid-row: 3;
   -ms-grid-column: 12;
   grid-area: task4;
+  background-color: #9c88ff;
 }
 
-main #merged {
-  -ms-grid-row: 7;
+main #explanation #merged {
+  -ms-grid-row: 4;
   -ms-grid-column: 2;
   -ms-grid-column-span: 3;
   grid-area: merged;
+  background-color: #88fdff;
 }
 
-main #branch2 {
-  -ms-grid-row: 7;
+main #explanation #branch2 {
+  -ms-grid-row: 4;
   -ms-grid-column: 6;
   -ms-grid-column-span: 3;
   grid-area: branch2;
+  background-color: #c388ff;
 }
 
-main #task5 {
-  -ms-grid-row: 7;
+main #explanation #task5 {
+  -ms-grid-row: 4;
   -ms-grid-column: 10;
   grid-area: task5;
+  background-color: #ff8888;
 }
 
-main #task6 {
-  -ms-grid-row: 7;
+main #explanation #task6 {
+  -ms-grid-row: 4;
   -ms-grid-column: 12;
   grid-area: task6;
+  background-color: #92ff88;
 }
 
-main #focus {
-  -ms-grid-row: 9;
+main #benefit {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: benefit;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: ". . . . . . ." ". . . focus . . ." ". previous . task . next .";
+  -ms-grid-columns: 1fr 2fr 1fr 12fr 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr 12fr 1fr 2fr 1fr;
+  -ms-grid-rows: 25fr 20fr 80fr;
+      grid-template-rows: 25fr 20fr 80fr;
+}
+
+main #benefit #focus {
+  -ms-grid-row: 2;
   -ms-grid-column: 4;
-  -ms-grid-column-span: 7;
   grid-area: focus;
+  background-color: #ffcf88;
 }
 
-main #previous {
-  -ms-grid-row: 10;
+main #benefit #previous {
+  -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: previous;
+  background-color: #88ffb8;
 }
 
-main #task {
-  -ms-grid-row: 10;
-  -ms-grid-column: 5;
-  -ms-grid-column-span: 5;
+main #benefit #task {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
   grid-area: task;
+  background-color: #bf88ff;
 }
 
-main #next {
-  -ms-grid-row: 10;
-  -ms-grid-column: 12;
+main #benefit #next {
+  -ms-grid-row: 3;
+  -ms-grid-column: 6;
   grid-area: next;
+  background-color: #ff8888;
 }
 
-main #message {
-  -ms-grid-row: 12;
-  -ms-grid-column: 4;
-  -ms-grid-column-span: 7;
+main #join {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: join;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: ". . . . ." ". message message message ." ". register or login ." ". . . . .";
+  -ms-grid-columns: 1fr 4fr 1fr 4fr 1fr;
+      grid-template-columns: 1fr 4fr 1fr 4fr 1fr;
+  -ms-grid-rows: 25fr 20fr 70fr 5fr;
+      grid-template-rows: 25fr 20fr 70fr 5fr;
+}
+
+main #join #message {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
   grid-area: message;
+  background-color: #ffcf88;
 }
 
-main #register {
-  -ms-grid-row: 13;
-  -ms-grid-column: 4;
-  -ms-grid-column-span: 3;
+main #join #register {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
   grid-area: register;
+  background-color: #88ffb8;
 }
 
-main #or {
-  -ms-grid-row: 13;
-  -ms-grid-column: 7;
+main #join #or {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
   grid-area: or;
+  background-color: #bf88ff;
 }
 
-main #login {
-  -ms-grid-row: 13;
-  -ms-grid-column: 8;
-  -ms-grid-column-span: 3;
+main #join #login {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
   grid-area: login;
+  background-color: #ff8888;
 }
 /*# sourceMappingURL=index.css.map */

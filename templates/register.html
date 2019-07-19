@@ -1,5 +1,23 @@
 {% extends "layout.html" %} {% block head %}
 <title>Action - Register</title>
 {% endblock %} {% block body %}
-<h1>Action</h1>
+<h1>Register</h1>
+
+<form action="/register" method="POST">
+    <input type="email" name="email" placeholder="Email" autofocus="" />
+    <input type="text" name="username" placeholder="Username" autofocus="" />
+    <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        autofocus=""
+    />
+    <input
+        type="password"
+        name="confirmpassword"
+        placeholder="Confirm password"
+        autofocus=""
+    />
+    <button type="submit">Register</button>
+</form>
 {% endblock %}

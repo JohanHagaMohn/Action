@@ -1,88 +1,197 @@
+body {
+    overflow-y: hidden;
+}
 main {
+    background-color: inherit;
+    #landing {
+        position: absolute;
+        z-index: 3;
+        background-color: inherit;
+        height: 100vh;
+        width: 100vw;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        transition: opacity 500ms ease-in;
+    }
     display: grid;
-    //height: 100%;
-    grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
     grid-template-areas:
-        ". . . . . . . . . . . . ."
-        ". . . main main main main main main main . . ."
-        ". . . . . . arrow . . . . . ."
-        ". . . . . . . . . . . . ."
-        ". . . . lifegoals lifegoals lifegoals lifegoals lifegoals . . . ."
-        ". branch1 branch1 branch1 . task1 . task2 . task3 . task4 ."
-        ". merged merged merged . branch2 branch2 branch2 . task5 . task6 ."
-        ". . . . . . . . . . . . ."
-        ". . . focus focus focus focus focus focus focus . . ."
-        ". previous . . task task task task task . . next ."
-        ". . . . . . . . . . . . ."
-        ". . . message message message message message message message . . ."
-        ". . . register register register or login login login . . ."
-        ". . . . . . . . . . . . .";
-    grid-template-rows: 5vh 76vh 10vh 10vh 20vh 40vh 40vh 10vh 20vh 80vh 10vh 20vh 70vh 10vh;
-    justify-content: center;
-    div {
-        background-color: aquamarine;
-        height: auto;
-        width: auto;
+        "intro"
+        "explanation"
+        "benefit"
+        "join";
+    grid-template-columns: 100vw;
+    grid-template-rows: 91vh 125vh 125vh 120vh;
+    #intro {
+        grid-area: intro;
         display: grid;
+        grid-template-areas:
+            ". . ."
+            ". title ."
+            ". arrow .";
+        grid-template-columns: 3fr 14fr 3fr;
+        grid-template-rows: 6fr 75fr 10fr;
+        color: inherit;
+        #title {
+            grid-area: title;
+            display: grid;
+            grid-template-areas:
+                "text1 text1 text1 text1 text1"
+                "carousel carousel carousel carousel carousel"
+                "text2 text2 text2 text2 text2";
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: 1fr 2fr 1fr;
+            color: inherit;
+            h1 {
+                pointer-events: none;
+            }
+            * {
+                transition: transform 1500ms ease-out, opacity 3000ms ease-out;
+                vertical-align: middle;
+                text-align: center;
+                opacity: 0;
+                color: inherit;
+            }
+            #text1 {
+                grid-area: text1;
+            }
+            #text2 {
+                grid-area: text2;
+                transform: translateX(35%);
+            }
+        }
+        #arrow {
+            grid-area: arrow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            justify-self: center;
+            align-self: center;
+            width: 25%;
+            height: 10vh;
+            &:hover {
+                #down {
+                    transform: translateY(0.75vh);
+                    opacity: 1;
+                }
+            }
+            #down {
+                transition: transform 200ms ease-in-out,
+                    opacity 200ms ease-in-out;
+                transform: translateY(-0.25vh);
+                height: 5vh;
+                opacity: 0.5;
+                pointer-events: none;
+            }
+        }
     }
-    #main {
-        grid-area: main;
+    #explanation {
+        grid-area: explanation;
+        display: grid;
+        grid-template-areas:
+            ". . . . . . . . . . . . ."
+            ". . . lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals . . ."
+            ". branch1 branch1 branch1 . task1 . task2 . task3 . task4 ."
+            ". merged merged merged . branch2 branch2 branch2 . task5 . task6 .";
+        grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
+        grid-template-rows: 25fr 20fr 40fr 40fr;
+        #lifegoals {
+            grid-area: lifegoals;
+            background-color: #88ffb4;
+        }
+        #branch1 {
+            grid-area: branch1;
+            background-color: #ff88e3;
+        }
+        #branch1 {
+            grid-area: branch1;
+            background-color: #ff88e3;
+        }
+        #task1 {
+            grid-area: task1;
+            background-color: #fff588;
+        }
+        #task2 {
+            grid-area: task2;
+            background-color: #ffcf88;
+        }
+        #task3 {
+            grid-area: task3;
+            background-color: #ff9a88;
+        }
+        #task4 {
+            grid-area: task4;
+            background-color: #9c88ff;
+        }
+        #merged {
+            grid-area: merged;
+            background-color: #88fdff;
+        }
+        #branch2 {
+            grid-area: branch2;
+            background-color: #c388ff;
+        }
+        #task5 {
+            grid-area: task5;
+            background-color: #ff8888;
+        }
+        #task6 {
+            grid-area: task6;
+            background-color: #92ff88;
+        }
     }
-    #arrow {
-        grid-area: arrow;
+    #benefit {
+        grid-area: benefit;
+        display: grid;
+        grid-template-areas:
+            ". . . . . . ."
+            ". . . focus . . ."
+            ". previous . task . next .";
+        grid-template-columns: 1fr 2fr 1fr 12fr 1fr 2fr 1fr;
+        grid-template-rows: 25fr 20fr 80fr;
+        #focus {
+            grid-area: focus;
+            background-color: #ffcf88;
+        }
+        #previous {
+            grid-area: previous;
+            background-color: #88ffb8;
+        }
+        #task {
+            grid-area: task;
+            background-color: #bf88ff;
+        }
+        #next {
+            grid-area: next;
+            background-color: #ff8888;
+        }
     }
-    #lifegoals {
-        grid-area: lifegoals;
-    }
-    #branch1 {
-        grid-area: branch1;
-    }
-    #task1 {
-        grid-area: task1;
-    }
-    #task2 {
-        grid-area: task2;
-    }
-    #task3 {
-        grid-area: task3;
-    }
-    #task4 {
-        grid-area: task4;
-    }
-    #merged {
-        grid-area: merged;
-    }
-    #branch2 {
-        grid-area: branch2;
-    }
-    #task5 {
-        grid-area: task5;
-    }
-    #task6 {
-        grid-area: task6;
-    }
-    #focus {
-        grid-area: focus;
-    }
-    #previous {
-        grid-area: previous;
-    }
-    #task {
-        grid-area: task;
-    }
-    #next {
-        grid-area: next;
-    }
-    #message {
-        grid-area: message;
-    }
-    #register {
-        grid-area: register;
-    }
-    #or {
-        grid-area: or;
-    }
-    #login {
-        grid-area: login;
+    #join {
+        grid-area: join;
+        display: grid;
+        grid-template-areas:
+            ". . . . ."
+            ". message message message ."
+            ". register or login ."
+            ". . . . .";
+        grid-template-columns: 1fr 4fr 1fr 4fr 1fr;
+        grid-template-rows: 25fr 20fr 70fr 5fr;
+        #message {
+            grid-area: message;
+            background-color: #ffcf88;
+        }
+        #register {
+            grid-area: register;
+            background-color: #88ffb8;
+        }
+        #or {
+            grid-area: or;
+            background-color: #bf88ff;
+        }
+        #login {
+            grid-area: login;
+            background-color: #ff8888;
+        }
     }
 }
