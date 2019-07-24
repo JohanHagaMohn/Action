@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const cookie = getCookieValue("style");
     if (cookie != "") {
         document.body.style.backgroundColor =
-            cookie == "rgb(255, 255, 255)" || cookie == "#fff"
+            cookie == "rgb(255, 255, 255)" || cookie == "#fffff"
                 ? "rgb(0, 0, 0)"
                 : "rgb(255, 255, 255)";
     }
@@ -87,12 +87,20 @@ window.addEventListener("DOMContentLoaded", () => {
         const contrast =
             bodyColor == "rgb(0, 0, 0)" ? "0, 0, 0" : "255, 255, 255";
         document.querySelectorAll(".circle").forEach(element => {
-            if (element.style.border != "2px solid rgb(56, 177, 56)") {
+            if (
+                element.style.borderColor != "rgb(56, 177, 56)" &&
+                element.style.borderColor != "rgb(177, 56, 56)"
+            ) {
                 element.style.border = `2px solid rgba(${contrast}, 0.5)`;
             }
         });
         document.querySelectorAll(".mcircle").forEach(element => {
-            element.style.border = `2px solid rgba(${contrast}, 0.5)`;
+            if (
+                element.style.borderColor != "rgb(56, 177, 56)" &&
+                element.style.borderColor != "rgb(177, 56, 56)"
+            ) {
+                element.style.border = `2px solid rgba(${contrast}, 0.5)`;
+            }
         });
         document.querySelector(
             "header"

@@ -50,6 +50,7 @@ main {
                 text-align: center;
                 opacity: 0;
                 color: inherit;
+                width: fit-content;
             }
             #carousel {
                 grid-area: carousel;
@@ -61,7 +62,7 @@ main {
                 text-align: center;
                 padding: 0;
                 opacity: 0;
-                transition: opacity 1s ease-in;
+                transition: transform 1s ease-out, opacity 1s ease-in;
                 .circle {
                     height: 12.5vw;
                     width: 12.5vw;
@@ -72,14 +73,15 @@ main {
                     justify-content: center;
                     flex-direction: column;
                     cursor: pointer;
-                    transition: transform 250ms ease-out;
+                    transition: transform 350ms ease-in-out,
+                        opacity 350ms ease-in-out;
+                    transform: translateX(0);
                     &:hover {
-                        transform: scale(1.05);
+                        transform: scale(1.075);
                     }
                     span {
                         font-size: 3.5vh;
-                        pointer-events: none;
-                        cursor: none;
+                        opacity: 0.75;
                     }
                     .time {
                         font-size: 2.5vh;
@@ -97,12 +99,23 @@ main {
                     &#circle4 {
                         grid-area: circle4;
                     }
+                    &#circle5 {
+                        grid-area: circle4;
+                        transform: translateX(
+                                calc((14 / 18) * (6 / 25) * 100vw)
+                            )
+                            scale(0.1);
+                        opacity: 0;
+                        display: none;
+                    }
                 }
                 .mcircle {
                     height: 2vh;
                     width: 2vh;
                     border: 2px solid black;
                     border-radius: 50%;
+                    transition: transform 350ms ease-in-out,
+                        opacity 350ms ease-in-out;
                     &#mcircle1 {
                         grid-area: mcircle1;
                     }
@@ -118,19 +131,28 @@ main {
                     &#mcircle5 {
                         grid-area: mcircle5;
                     }
+                    &#mcircle6 {
+                        grid-area: mcircle5;
+                        transform: translateX(
+                                calc((14 / 18) * (6 / 25) * 100vw)
+                            )
+                            scale(0.1);
+                        opacity: 0;
+                        display: none;
+                    }
                 }
             }
             #text1 {
                 grid-area: text1;
+                transform: translateX(15vw);
             }
             #text2 {
                 grid-area: text2;
-                transform: translateX(35%);
+                justify-self: right;
             }
         }
         #arrow {
             grid-area: arrow;
-
             display: flex;
             align-items: center;
             justify-content: center;
