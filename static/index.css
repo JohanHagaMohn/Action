@@ -9,8 +9,8 @@ main {
       grid-template-areas: "intro" "explanation" "benefit" "join";
   -ms-grid-columns: 100vw;
       grid-template-columns: 100vw;
-  -ms-grid-rows: 91vh 125vh 125vh 120vh;
-      grid-template-rows: 91vh 125vh 125vh 120vh;
+  -ms-grid-rows: 107vh 116vh 116vh 95vh;
+      grid-template-rows: 107vh 116vh 116vh 95vh;
 }
 
 main #landing {
@@ -32,11 +32,11 @@ main #intro {
   grid-area: intro;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: ". . ." ". title ." ". arrow .";
-  -ms-grid-columns: 3fr 14fr 3fr;
-      grid-template-columns: 3fr 14fr 3fr;
-  -ms-grid-rows: 6fr 75fr 10fr;
-      grid-template-rows: 6fr 75fr 10fr;
+      grid-template-areas: ". . ." ". title ." ". arrow ." ". . .";
+  -ms-grid-columns: 2fr 14fr 2fr;
+      grid-template-columns: 2fr 14fr 2fr;
+  -ms-grid-rows: 6fr 75fr 10fr 16fr;
+      grid-template-rows: 6fr 75fr 10fr 16fr;
   color: inherit;
 }
 
@@ -56,9 +56,6 @@ main #intro #title {
 
 main #intro #title h1 {
   pointer-events: none;
-}
-
-main #intro #title * {
   -webkit-transition: opacity 3000ms ease-out, -webkit-transform 1500ms ease-out;
   transition: opacity 3000ms ease-out, -webkit-transform 1500ms ease-out;
   transition: transform 1500ms ease-out, opacity 3000ms ease-out;
@@ -67,6 +64,129 @@ main #intro #title * {
   text-align: center;
   opacity: 0;
   color: inherit;
+}
+
+main #intro #title #carousel {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: carousel;
+  display: -ms-inline-grid;
+  display: inline-grid;
+      grid-template-areas: "mcircle1 circle1 mcircle2 circle2 mcircle3 circle3 mcircle4 circle4 mcircle5";
+  -ms-grid-columns: 1fr 5fr 1fr 5fr 1fr 5fr 1fr 5fr 1fr;
+      grid-template-columns: 1fr 5fr 1fr 5fr 1fr 5fr 1fr 5fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  text-align: center;
+  padding: 0;
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in;
+  transition: opacity 1s ease-in;
+}
+
+main #intro #title #carousel .circle {
+  height: 12.5vw;
+  width: 12.5vw;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 250ms ease-out;
+  transition: -webkit-transform 250ms ease-out;
+  transition: transform 250ms ease-out;
+  transition: transform 250ms ease-out, -webkit-transform 250ms ease-out;
+}
+
+main #intro #title #carousel .circle:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+main #intro #title #carousel .circle span {
+  font-size: 3.5vh;
+  pointer-events: none;
+  cursor: none;
+}
+
+main #intro #title #carousel .circle .time {
+  font-size: 2.5vh;
+  opacity: 0.5;
+}
+
+main #intro #title #carousel .circle#circle1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: circle1;
+}
+
+main #intro #title #carousel .circle#circle2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: circle2;
+}
+
+main #intro #title #carousel .circle#circle3 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  grid-area: circle3;
+}
+
+main #intro #title #carousel .circle#circle4 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 8;
+  grid-area: circle4;
+}
+
+main #intro #title #carousel .mcircle {
+  height: 2vh;
+  width: 2vh;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+main #intro #title #carousel .mcircle#mcircle1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: mcircle1;
+}
+
+main #intro #title #carousel .mcircle#mcircle2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: mcircle2;
+}
+
+main #intro #title #carousel .mcircle#mcircle3 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: mcircle3;
+}
+
+main #intro #title #carousel .mcircle#mcircle4 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 7;
+  grid-area: mcircle4;
+}
+
+main #intro #title #carousel .mcircle#mcircle5 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 9;
+  grid-area: mcircle5;
 }
 
 main #intro #title #text1 {
@@ -109,7 +229,7 @@ main #intro #arrow {
 main #intro #arrow:hover #down {
   -webkit-transform: translateY(0.75vh);
           transform: translateY(0.75vh);
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 main #intro #arrow #down {
@@ -119,8 +239,8 @@ main #intro #arrow #down {
   transition: transform 200ms ease-in-out, opacity 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
   -webkit-transform: translateY(-0.25vh);
           transform: translateY(-0.25vh);
+  opacity: 0;
   height: 5vh;
-  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -130,11 +250,11 @@ main #explanation {
   grid-area: explanation;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: ". . . . . . . . . . . . ." ". . . lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals . . ." ". branch1 branch1 branch1 . task1 . task2 . task3 . task4 ." ". merged merged merged . branch2 branch2 branch2 . task5 . task6 .";
+      grid-template-areas: ". . . . . . . . . . . . ." ". . . lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals . . ." ". branch1 branch1 branch1 . task1 . task2 . task3 . task4 ." ". merged merged merged . branch2 branch2 branch2 . task5 . task6 ." ". . . . . . . . . . . . .";
   -ms-grid-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
       grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
-  -ms-grid-rows: 25fr 20fr 40fr 40fr;
-      grid-template-rows: 25fr 20fr 40fr 40fr;
+  -ms-grid-rows: 9fr 11fr 40fr 40fr 16fr;
+      grid-template-rows: 9fr 11fr 40fr 40fr 16fr;
 }
 
 main #explanation #lifegoals {
@@ -143,14 +263,6 @@ main #explanation #lifegoals {
   -ms-grid-column-span: 7;
   grid-area: lifegoals;
   background-color: #88ffb4;
-}
-
-main #explanation #branch1 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 3;
-  grid-area: branch1;
-  background-color: #ff88e3;
 }
 
 main #explanation #branch1 {
@@ -225,11 +337,11 @@ main #benefit {
   grid-area: benefit;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: ". . . . . . ." ". . . focus . . ." ". previous . task . next .";
+      grid-template-areas: ". . . . . . ." ". . . focus . . ." ". previous . task . next ." ". . . . . . .";
   -ms-grid-columns: 1fr 2fr 1fr 12fr 1fr 2fr 1fr;
       grid-template-columns: 1fr 2fr 1fr 12fr 1fr 2fr 1fr;
-  -ms-grid-rows: 25fr 20fr 80fr;
-      grid-template-rows: 25fr 20fr 80fr;
+  -ms-grid-rows: 9fr 11fr 80fr 16fr;
+      grid-template-rows: 9fr 11fr 80fr 16fr;
 }
 
 main #benefit #focus {
@@ -269,8 +381,8 @@ main #join {
       grid-template-areas: ". . . . ." ". message message message ." ". register or login ." ". . . . .";
   -ms-grid-columns: 1fr 4fr 1fr 4fr 1fr;
       grid-template-columns: 1fr 4fr 1fr 4fr 1fr;
-  -ms-grid-rows: 25fr 20fr 70fr 5fr;
-      grid-template-rows: 25fr 20fr 70fr 5fr;
+  -ms-grid-rows: 9fr 11fr 70fr 5fr;
+      grid-template-rows: 9fr 11fr 70fr 5fr;
 }
 
 main #join #message {

@@ -199,26 +199,23 @@ header #icons {
   -ms-grid-column: 5;
   -ms-grid-column-span: 2;
   grid-area: dropdown;
-  background-color: inherit;
-  -webkit-transform: translateY(-0.45vh);
-          transform: translateY(-0.45vh);
+  -webkit-transform: translateY(-0.75vh);
+          transform: translateY(-0.75vh);
 }
 
 header .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transform: translateY(-0.3vh);
-          transform: translateY(-0.3vh);
+  background-color: inherit;
   -webkit-box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
           box-shadow: -2px 2px 2px -2px rgba(0, 0, 0, 0.5);
+  -webkit-transition: opacity 150ms ease-in, -webkit-transform 150ms ease-in;
+  transition: opacity 150ms ease-in, -webkit-transform 150ms ease-in;
+  transition: opacity 150ms ease-in, transform 150ms ease-in;
+  transition: opacity 150ms ease-in, transform 150ms ease-in, -webkit-transform 150ms ease-in;
   height: 6vh;
   width: calc(5 / 29 * 100vw);
-  -webkit-transition: opacity 150ms ease-in, -webkit-transform 100ms ease-in;
-  transition: opacity 150ms ease-in, -webkit-transform 100ms ease-in;
-  transition: opacity 150ms ease-in, transform 100ms ease-in;
-  transition: opacity 150ms ease-in, transform 100ms ease-in, -webkit-transform 100ms ease-in;
-  background-color: inherit;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -477,5 +474,14 @@ footer h6#copyright {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
+}
+
+footer a#author * {
+  -webkit-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
+}
+
+footer a#author:hover * {
+  opacity: 1;
 }
 /*# sourceMappingURL=layout.css.map */

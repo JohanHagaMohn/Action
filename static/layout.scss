@@ -144,17 +144,15 @@ header {
     }
     #icons {
         grid-area: dropdown;
-        background-color: inherit;
-        transform: translateY(-0.45vh);
+        transform: translateY(-0.75vh);
     }
     .container {
         display: flex;
-        transform: translateY(-0.3vh);
+        background-color: inherit;
         box-shadow: -2px 2px 2px -2px rgba($contrast, 0.5);
+        transition: opacity 150ms ease-in, transform 150ms ease-in;
         height: 6vh;
         width: calc(5 / 29 * 100vw);
-        transition: opacity 150ms ease-in, transform 100ms ease-in;
-        background-color: inherit;
         justify-content: space-evenly;
         justify-items: center;
         align-items: center;
@@ -353,5 +351,11 @@ footer {
         display: inline-block;
         text-align: center;
         vertical-align: middle;
+    }
+    a#author * {
+        transition: opacity 200ms ease-in;
+    }
+    a#author:hover * {
+        opacity: 1;
     }
 }

@@ -21,16 +21,17 @@ main {
         "benefit"
         "join";
     grid-template-columns: 100vw;
-    grid-template-rows: 91vh 125vh 125vh 120vh;
+    grid-template-rows: 107vh 116vh 116vh 95vh;
     #intro {
         grid-area: intro;
         display: grid;
         grid-template-areas:
             ". . ."
             ". title ."
-            ". arrow .";
-        grid-template-columns: 3fr 14fr 3fr;
-        grid-template-rows: 6fr 75fr 10fr;
+            ". arrow ."
+            ". . .";
+        grid-template-columns: 2fr 14fr 2fr;
+        grid-template-rows: 6fr 75fr 10fr 16fr;
         color: inherit;
         #title {
             grid-area: title;
@@ -44,13 +45,80 @@ main {
             color: inherit;
             h1 {
                 pointer-events: none;
-            }
-            * {
                 transition: transform 1500ms ease-out, opacity 3000ms ease-out;
                 vertical-align: middle;
                 text-align: center;
                 opacity: 0;
                 color: inherit;
+            }
+            #carousel {
+                grid-area: carousel;
+                display: inline-grid;
+                grid-template-areas: "mcircle1 circle1 mcircle2 circle2 mcircle3 circle3 mcircle4 circle4 mcircle5";
+                grid-template-columns: 1fr 5fr 1fr 5fr 1fr 5fr 1fr 5fr 1fr;
+                align-items: center;
+                justify-items: center;
+                text-align: center;
+                padding: 0;
+                opacity: 0;
+                transition: opacity 1s ease-in;
+                .circle {
+                    height: 12.5vw;
+                    width: 12.5vw;
+                    border: 2px solid black;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    cursor: pointer;
+                    transition: transform 250ms ease-out;
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                    span {
+                        font-size: 3.5vh;
+                        pointer-events: none;
+                        cursor: none;
+                    }
+                    .time {
+                        font-size: 2.5vh;
+                        opacity: 0.5;
+                    }
+                    &#circle1 {
+                        grid-area: circle1;
+                    }
+                    &#circle2 {
+                        grid-area: circle2;
+                    }
+                    &#circle3 {
+                        grid-area: circle3;
+                    }
+                    &#circle4 {
+                        grid-area: circle4;
+                    }
+                }
+                .mcircle {
+                    height: 2vh;
+                    width: 2vh;
+                    border: 2px solid black;
+                    border-radius: 50%;
+                    &#mcircle1 {
+                        grid-area: mcircle1;
+                    }
+                    &#mcircle2 {
+                        grid-area: mcircle2;
+                    }
+                    &#mcircle3 {
+                        grid-area: mcircle3;
+                    }
+                    &#mcircle4 {
+                        grid-area: mcircle4;
+                    }
+                    &#mcircle5 {
+                        grid-area: mcircle5;
+                    }
+                }
             }
             #text1 {
                 grid-area: text1;
@@ -62,6 +130,7 @@ main {
         }
         #arrow {
             grid-area: arrow;
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -73,15 +142,15 @@ main {
             &:hover {
                 #down {
                     transform: translateY(0.75vh);
-                    opacity: 1;
+                    opacity: 1 !important;
                 }
             }
             #down {
                 transition: transform 200ms ease-in-out,
                     opacity 200ms ease-in-out;
                 transform: translateY(-0.25vh);
+                opacity: 0;
                 height: 5vh;
-                opacity: 0.5;
                 pointer-events: none;
             }
         }
@@ -93,16 +162,13 @@ main {
             ". . . . . . . . . . . . ."
             ". . . lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals . . ."
             ". branch1 branch1 branch1 . task1 . task2 . task3 . task4 ."
-            ". merged merged merged . branch2 branch2 branch2 . task5 . task6 .";
+            ". merged merged merged . branch2 branch2 branch2 . task5 . task6 ."
+            ". . . . . . . . . . . . .";
         grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
-        grid-template-rows: 25fr 20fr 40fr 40fr;
+        grid-template-rows: 9fr 11fr 40fr 40fr 16fr;
         #lifegoals {
             grid-area: lifegoals;
             background-color: #88ffb4;
-        }
-        #branch1 {
-            grid-area: branch1;
-            background-color: #ff88e3;
         }
         #branch1 {
             grid-area: branch1;
@@ -147,9 +213,10 @@ main {
         grid-template-areas:
             ". . . . . . ."
             ". . . focus . . ."
-            ". previous . task . next .";
+            ". previous . task . next ."
+            ". . . . . . .";
         grid-template-columns: 1fr 2fr 1fr 12fr 1fr 2fr 1fr;
-        grid-template-rows: 25fr 20fr 80fr;
+        grid-template-rows: 9fr 11fr 80fr 16fr;
         #focus {
             grid-area: focus;
             background-color: #ffcf88;
@@ -176,7 +243,7 @@ main {
             ". register or login ."
             ". . . . .";
         grid-template-columns: 1fr 4fr 1fr 4fr 1fr;
-        grid-template-rows: 25fr 20fr 70fr 5fr;
+        grid-template-rows: 9fr 11fr 70fr 5fr;
         #message {
             grid-area: message;
             background-color: #ffcf88;

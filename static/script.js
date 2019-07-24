@@ -8,20 +8,6 @@ function eventFire(el, etype) {
         !el.dispatchEvent(evObj);
     }
 }
-function hideIcon(light, opacity) {
-    /** Changes night mode icon and label based on opacity */
-    if (opacity == 1) {
-        document.querySelector(`#${light}`).style.display = "none";
-    } else {
-        document.querySelector(`#${light}`).style.display = "flex";
-    }
-    label = document.querySelector("#nightLabel");
-    if (light == "moon") {
-        label.innerHTML = "Light Mode";
-    } else {
-        label.innerHTML = "Dark Mode";
-    }
-}
 /** Gets cookie by name, from stackoverflow.com/questions/5639346 */
 function getCookieValue(a) {
     var b = document.cookie.match("(^|[^;]+)\\s*" + a + "\\s*=\\s*([^;]+)");
@@ -34,13 +20,18 @@ window.addEventListener("DOMContentLoaded", () => {
     let smallMenu = false;
     const cookie = getCookieValue("style");
     if (cookie != "") {
-        document.body.style.backgroundColor = cookie;
+        document.body.style.backgroundColor =
+            cookie == "rgb(255, 255, 255)" || cookie == "#fff"
+                ? "rgb(0, 0, 0)"
+                : "rgb(255, 255, 255)";
     }
     let bodyColor = document.body.style.backgroundColor;
-    document.querySelector("main").style.color =
-        bodyColor == "rgb(255, 255, 255)" || bodyColor == "#fff"
-            ? "#000"
-            : "#fff";
+    if (!bodyColor) {
+        /** Sets default bodyColor black to be turned white */
+        bodyColor = "rgb(255, 255, 255)";
+    }
+    changeStyle();
+
     function showContainers(opacity) {
         /** Toggles menu items on small screens */
         if (window.innerWidth < 540 && smallMenu == false && opacity == 1) {
@@ -54,16 +45,15 @@ window.addEventListener("DOMContentLoaded", () => {
             document.querySelector("#login").style.display = "none";
             smallMenu = false;
         }
-
+        document.querySelector("#icons").style.opacity = opacity;
         /** Changes containers' visibility based on opacity */
         document.querySelectorAll(".container").forEach(element => {
             if (opacity == 0) {
                 setTimeout(() => {
-                    element.style.visibility = "none";
+                    element.style.visibility = "hidden";
+                    element.style.display = "none";
                 }, 100);
                 element.style.opacity = opacity;
-                element.style.display = "none";
-
                 /** Simulates click event to reset event listeners */
                 eventFire(document.querySelector("main"), "click");
             } else {
@@ -77,17 +67,12 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     function showMenu(opacity) {
         /** Hides containers and svg */
-        hideIcon(
-            bodyColor == "rgb(255, 255, 255)" || bodyColor == "#fff"
-                ? "sun"
-                : "moon",
-            opacity
-        );
+        const light = bodyColor == "rgb(255, 255, 255)" ? "sun" : "moon";
+        document.querySelector(`#${light}`).style.display =
+            opacity == 1 ? "none" : "flex";
+        document.querySelector("#nightLabel").innerHTML =
+            light == "moon" ? "Light Mode" : "Dark Mode";
         showContainers(opacity);
-    }
-    if (!bodyColor) {
-        /** Sets default bodyColor white */
-        bodyColor = "#fff";
     }
     document.querySelector("main").addEventListener("click", () => {
         if (menuClicked) {
@@ -98,32 +83,43 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     function changeStyle() {
         /** Deselects menu and changes styling on nightMode click */
-        showMenu(0);
-        //console.log(bodyColor);
         document.querySelector("main").style.color = bodyColor;
-        if (bodyColor == "rgb(255, 255, 255)" || bodyColor == "#fff") {
-            bodyColor = "#000";
-            document.querySelector("header").style.boxShadow =
-                "0 2px 2px -2px rgba(200, 200, 200, 0.5)";
-        } else {
-            bodyColor = "#fff";
-            document.querySelector("header").style.boxShadow =
-                "0 2px 2px -2px rgba(0, 0, 0, 0.5)";
-        }
-        //console.log(bodyColor);
-        document.querySelector("body").style.backgroundColor = bodyColor;
-        document.querySelectorAll(".container").forEach(element => {
-            element.style.backgroundColor = bodyColor;
+        const contrast =
+            bodyColor == "rgb(0, 0, 0)" ? "0, 0, 0" : "255, 255, 255";
+        document.querySelectorAll(".circle").forEach(element => {
+            if (element.style.border != "2px solid rgb(56, 177, 56)") {
+                element.style.border = `2px solid rgba(${contrast}, 0.5)`;
+            }
         });
+        document.querySelectorAll(".mcircle").forEach(element => {
+            element.style.border = `2px solid rgba(${contrast}, 0.5)`;
+        });
+        document.querySelector(
+            "header"
+        ).style.boxShadow = `0 2px 2px -2px rgba(${contrast}, 0.5)`;
+        document.querySelector(
+            "footer"
+        ).style.boxShadow = `0 -2px 2px -2px rgba(${contrast}, 0.5)`;
+        document.querySelectorAll(".container").forEach(element => {
+            element.style.boxShadow = `-2px 2px 2px -2px rgba(${contrast}, 0.5)`;
+        });
+        bodyColor =
+            bodyColor == "rgb(255, 255, 255)"
+                ? "rgb(0, 0, 0)"
+                : "rgb(255, 255, 255)";
+
+        document.querySelector("body").style.backgroundColor = bodyColor;
     }
 
     document.querySelector("#nightMode").addEventListener("click", () => {
+        showMenu(0);
         changeStyle();
         document.cookie = `style=${bodyColor}`;
     });
     document.getElementById("settingicon").addEventListener("click", () => {
         /** Inverts menuClicked boolean and displays menu accordingly */
         menuClicked = !menuClicked;
+        document.querySelector("#icons").style.backgroundColor = bodyColor;
         if (menuClicked) {
             showMenu(1);
         } else {
