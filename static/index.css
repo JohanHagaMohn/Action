@@ -93,8 +93,8 @@ main #intro #title #carousel {
 }
 
 main #intro #title #carousel .circle {
-  height: 12.5vw;
-  width: 12.5vw;
+  height: 22.5vh;
+  width: 22.5vh;
   border: 2px solid black;
   border-radius: 50%;
   display: -webkit-box;
@@ -125,7 +125,7 @@ main #intro #title #carousel .circle:hover {
 }
 
 main #intro #title #carousel .circle span {
-  font-size: 3.5vh;
+  font-size: 4vh;
   opacity: 0.75;
 }
 
@@ -274,6 +274,195 @@ main #intro #arrow #down {
   opacity: 0;
   height: 5vh;
   pointer-events: none;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1068px) {
+  main #intro #title #carousel {
+        grid-template-areas: "mcircle1 circle1 mcircle2 circle2 mcircle3 circle3 mcircle4";
+    -ms-grid-columns: 1fr 5fr 1fr 5fr 1fr 5fr 1fr;
+        grid-template-columns: 1fr 5fr 1fr 5fr 1fr 5fr 1fr;
+  }
+  main #intro #title #carousel .circle#circle1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: circle1;
+  }
+  main #intro #title #carousel .circle#circle2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+    grid-area: circle2;
+  }
+  main #intro #title #carousel .circle#circle3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 6;
+    grid-area: circle3;
+  }
+  main #intro #title #carousel .circle#circle4 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 6;
+    grid-area: circle3;
+    -webkit-transform: translateX(calc((14 / 18) * (6 / 19) * 100vw)) scale(0.1);
+            transform: translateX(calc((14 / 18) * (6 / 19) * 100vw)) scale(0.1);
+    opacity: 0;
+    display: none;
+  }
+  main #intro #title #carousel .circle#circle5 {
+    display: none;
+  }
+  main #intro #title #carousel .mcircle#mcircle1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: mcircle1;
+  }
+  main #intro #title #carousel .mcircle#mcircle2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: mcircle2;
+  }
+  main #intro #title #carousel .mcircle#mcircle3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+    grid-area: mcircle3;
+  }
+  main #intro #title #carousel .mcircle#mcircle4 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 7;
+    grid-area: mcircle4;
+  }
+  main #intro #title #carousel .mcircle#mcircle5 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 7;
+    grid-area: mcircle4;
+    -webkit-transform: translateX(calc((14 / 18) * (6 / 19) * 100vw)) scale(0.1);
+            transform: translateX(calc((14 / 18) * (6 / 19) * 100vw)) scale(0.1);
+    opacity: 0;
+    display: none;
+  }
+  main #intro #title #carousel .mcircle#mcircle6 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 540px) and (max-width: 767px) {
+  main #intro #title #carousel {
+        grid-template-areas: "mcircle1 circle1 mcircle2 circle2 mcircle3";
+    -ms-grid-columns: 1fr 5fr 1fr 5fr 1fr;
+        grid-template-columns: 1fr 5fr 1fr 5fr 1fr;
+  }
+  main #intro #title #carousel .circle#circle1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: circle1;
+  }
+  main #intro #title #carousel .circle#circle2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+    grid-area: circle2;
+  }
+  main #intro #title #carousel .circle#circle3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+    grid-area: circle2;
+    -webkit-transform: translateX(calc((14 / 18) * (6 / 13) * 100vw)) scale(0.1);
+            transform: translateX(calc((14 / 18) * (6 / 13) * 100vw)) scale(0.1);
+    opacity: 0;
+    display: none;
+  }
+  main #intro #title #carousel .circle#circle4 {
+    display: none;
+  }
+  main #intro #title #carousel .circle#circle5 {
+    display: none;
+  }
+  main #intro #title #carousel .mcircle#mcircle1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: mcircle1;
+  }
+  main #intro #title #carousel .mcircle#mcircle2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: mcircle2;
+  }
+  main #intro #title #carousel .mcircle#mcircle3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+    grid-area: mcircle3;
+  }
+  main #intro #title #carousel .mcircle#mcircle4 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+    grid-area: mcircle3;
+    -webkit-transform: translateX(calc((14 / 18) * (6 / 13) * 100vw)) scale(0.1);
+            transform: translateX(calc((14 / 18) * (6 / 13) * 100vw)) scale(0.1);
+    opacity: 0;
+    display: none;
+  }
+  main #intro #title #carousel .mcircle#mcircle5 {
+    display: none;
+  }
+  main #intro #title #carousel .mcircle#mcircle6 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 539px) {
+  main #intro #title #carousel {
+        grid-template-areas: "mcircle1 circle1 mcircle2";
+    -ms-grid-columns: 1fr 5fr 1fr;
+        grid-template-columns: 1fr 5fr 1fr;
+  }
+  main #intro #title #carousel .circle#circle1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: circle1;
+  }
+  main #intro #title #carousel .circle#circle2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: circle1;
+    -webkit-transform: translateX(calc((14 / 18) * (6 / 7) * 100vw)) scale(0.1);
+            transform: translateX(calc((14 / 18) * (6 / 7) * 100vw)) scale(0.1);
+    opacity: 0;
+    display: none;
+  }
+  main #intro #title #carousel .circle#circle3 {
+    display: none;
+  }
+  main #intro #title #carousel .circle#circle4 {
+    display: none;
+  }
+  main #intro #title #carousel .circle#circle5 {
+    display: none;
+  }
+  main #intro #title #carousel .mcircle#mcircle1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: mcircle1;
+  }
+  main #intro #title #carousel .mcircle#mcircle2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: mcircle2;
+  }
+  main #intro #title #carousel .mcircle#mcircle3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: mcircle2;
+    -webkit-transform: translateX(calc((14 / 18) * (6 / 7) * 100vw)) scale(0.1);
+            transform: translateX(calc((14 / 18) * (6 / 7) * 100vw)) scale(0.1);
+    opacity: 0;
+    display: none;
+  }
+  main #intro #title #carousel .mcircle#mcircle4 {
+    display: none;
+  }
+  main #intro #title #carousel .mcircle#mcircle5 {
+    display: none;
+  }
+  main #intro #title #carousel .mcircle#mcircle6 {
+    display: none;
+  }
 }
 
 main #explanation {

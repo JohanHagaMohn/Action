@@ -64,8 +64,8 @@ main {
                 opacity: 0;
                 transition: transform 1s ease-out, opacity 1s ease-in;
                 .circle {
-                    height: 12.5vw;
-                    width: 12.5vw;
+                    height: 22.5vh;
+                    width: 22.5vh;
                     border: 2px solid black;
                     border-radius: 50%;
                     display: flex;
@@ -80,7 +80,7 @@ main {
                         transform: scale(1.075);
                     }
                     span {
-                        font-size: 3.5vh;
+                        font-size: 4vh;
                         opacity: 0.75;
                     }
                     .time {
@@ -174,6 +174,167 @@ main {
                 opacity: 0;
                 height: 5vh;
                 pointer-events: none;
+            }
+        }
+        @media only screen and (min-width: 768px) and (max-width: 1068px) {
+            #title #carousel {
+                grid-template-areas: "mcircle1 circle1 mcircle2 circle2 mcircle3 circle3 mcircle4";
+                grid-template-columns: 1fr 5fr 1fr 5fr 1fr 5fr 1fr;
+                .circle {
+                    &#circle1 {
+                        grid-area: circle1;
+                    }
+                    &#circle2 {
+                        grid-area: circle2;
+                    }
+                    &#circle3 {
+                        grid-area: circle3;
+                    }
+                    &#circle4 {
+                        grid-area: circle3;
+                        transform: translateX(
+                                calc((14 / 18) * (6 / 19) * 100vw)
+                            )
+                            scale(0.1);
+                        opacity: 0;
+                        display: none;
+                    }
+                    &#circle5 {
+                        display: none;
+                    }
+                }
+                .mcircle {
+                    &#mcircle1 {
+                        grid-area: mcircle1;
+                    }
+                    &#mcircle2 {
+                        grid-area: mcircle2;
+                    }
+                    &#mcircle3 {
+                        grid-area: mcircle3;
+                    }
+                    &#mcircle4 {
+                        grid-area: mcircle4;
+                    }
+                    &#mcircle5 {
+                        grid-area: mcircle4;
+                        transform: translateX(
+                                calc((14 / 18) * (6 / 19) * 100vw)
+                            )
+                            scale(0.1);
+                        opacity: 0;
+                        display: none;
+                    }
+                    &#mcircle6 {
+                        display: none;
+                    }
+                }
+            }
+        }
+        @media only screen and (min-width: 540px) and (max-width: 767px) {
+            #title #carousel {
+                grid-template-areas: "mcircle1 circle1 mcircle2 circle2 mcircle3";
+                grid-template-columns: 1fr 5fr 1fr 5fr 1fr;
+                .circle {
+                    &#circle1 {
+                        grid-area: circle1;
+                    }
+                    &#circle2 {
+                        grid-area: circle2;
+                    }
+                    &#circle3 {
+                        grid-area: circle2;
+                        transform: translateX(
+                                calc((14 / 18) * (6 / 13) * 100vw)
+                            )
+                            scale(0.1);
+                        opacity: 0;
+                        display: none;
+                    }
+                    &#circle4 {
+                        display: none;
+                    }
+                    &#circle5 {
+                        display: none;
+                    }
+                }
+                .mcircle {
+                    &#mcircle1 {
+                        grid-area: mcircle1;
+                    }
+                    &#mcircle2 {
+                        grid-area: mcircle2;
+                    }
+                    &#mcircle3 {
+                        grid-area: mcircle3;
+                    }
+                    &#mcircle4 {
+                        grid-area: mcircle3;
+                        transform: translateX(
+                                calc((14 / 18) * (6 / 13) * 100vw)
+                            )
+                            scale(0.1);
+                        opacity: 0;
+                        display: none;
+                    }
+                    &#mcircle5 {
+                        display: none;
+                    }
+                    &#mcircle6 {
+                        display: none;
+                    }
+                }
+            }
+        }
+        @media only screen and (max-width: 539px) {
+            #title #carousel {
+                grid-template-areas: "mcircle1 circle1 mcircle2";
+                grid-template-columns: 1fr 5fr 1fr;
+                .circle {
+                    &#circle1 {
+                        grid-area: circle1;
+                    }
+                    &#circle2 {
+                        grid-area: circle1;
+                        transform: translateX(calc((14 / 18) * (6 / 7) * 100vw))
+                            scale(0.1);
+                        opacity: 0;
+                        display: none;
+                    }
+                    &#circle3 {
+                        display: none;
+                    }
+                    &#circle4 {
+                        display: none;
+                    }
+                    &#circle5 {
+                        display: none;
+                    }
+                }
+                .mcircle {
+                    &#mcircle1 {
+                        grid-area: mcircle1;
+                    }
+                    &#mcircle2 {
+                        grid-area: mcircle2;
+                    }
+                    &#mcircle3 {
+                        grid-area: mcircle2;
+                        transform: translateX(calc((14 / 18) * (6 / 7) * 100vw))
+                            scale(0.1);
+                        opacity: 0;
+                        display: none;
+                    }
+                    &#mcircle4 {
+                        display: none;
+                    }
+                    &#mcircle5 {
+                        display: none;
+                    }
+                    &#mcircle6 {
+                        display: none;
+                    }
+                }
             }
         }
     }

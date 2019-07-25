@@ -28,9 +28,34 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     const green = "rgb(56, 177, 56)";
     const red = "rgb(177, 56, 56)";
-    const carouselItems = 4;
-    const carouselItemWidth = 6;
-    const carouselItemsWidth = (14 / 18) * (carouselItemWidth / 25) * 100;
+    let carouselItems = 4;
+    let carouselItemWidth = 6 / 25;
+    let carouselItemsWidth = (14 / 18) * carouselItemWidth * 100;
+
+    /** Media query from https://www.sitepoint.com/javascript-media-queries/ */
+    if (matchMedia) {
+        window.matchMedia("(max-width: 1068px)").addListener(WidthChange);
+        window.matchMedia("(max-width: 767px)").addListener(WidthChange);
+        window.matchMedia("(max-width: 539px)").addListener(WidthChange);
+        WidthChange();
+    }
+
+    function WidthChange() {
+        if (window.matchMedia("(max-width: 539px)").matches) {
+            carouselItems = 1;
+            carouselItemWidth = 6 / 7;
+        } else if (window.matchMedia("(max-width: 767px)").matches) {
+            carouselItems = 2;
+            carouselItemWidth = 6 / 13;
+        } else if (window.matchMedia("(max-width: 1068px)").matches) {
+            carouselItems = 3;
+            carouselItemWidth = 6 / 19;
+        } else {
+            carouselItems = 4;
+            carouselItemWidth = 6 / 25;
+        }
+        carouselItemsWidth = (14 / 18) * carouselItemWidth * 100;
+    }
     function getContrast() {
         return document.querySelector("main").style.color == "rgb(0, 0, 0)"
             ? "0, 0, 0"
@@ -59,6 +84,9 @@ window.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 item.style.opacity = "1";
                 item.style.transform = "translateX(0) scale(1)";
+                setTimeout(() => {
+                    item.style.display = "";
+                }, 350);
             }, 10);
         } else {
             item.style.transform = `translateX(${-carouselItemsWidth}vw)`;
@@ -89,7 +117,7 @@ window.addEventListener("DOMContentLoaded", () => {
             item.style.pointerEvents = "none";
             setTimeout(() => {
                 item.style.pointerEvents = "all";
-            }, 750);
+            }, 399);
             moveCircles(item, "circle", carouselItems + 1);
         });
         document.querySelectorAll(".mcircle").forEach(item => {
@@ -105,7 +133,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 ) {
                     scrollNodes();
                 }
-            }, 350);
+            }, 50);
         }, 350);
     }
     function checkNodes(id) {

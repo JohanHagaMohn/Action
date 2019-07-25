@@ -203,7 +203,7 @@ header {
         }
     }
     @media only screen and (min-width: 768px) and (max-width: 1280px) {
-        grid-template-columns: 6fr 8fr 3fr 3fr 3fr 2fr;
+        grid-template-columns: 8fr 6fr 3fr 3fr 3fr 2fr;
         a::after {
             width: calc(3 / 25 * 100vw);
         }
@@ -224,12 +224,13 @@ header {
         }
     }
     @media only screen and (min-width: 540px) and (max-width: 768px) {
-        grid-template-columns: 6fr 3fr 3fr 3fr 3fr 2fr;
+        grid-template-columns: 8fr 1fr 3fr 3fr 3fr 2fr;
         a:not(#logo)::after {
             width: calc(3 / 20 * 100vw) !important;
+            left: initial;
         }
         a#logo::after {
-            width: calc(5 / 20 * 100vw);
+            width: calc(6 / 20 * 100vw);
         }
         #settingicon object {
             width: calc(2 / 20 * 100vw);
@@ -273,10 +274,6 @@ header {
                 height: 3vh;
             }
         }
-        a:not(#logo)::after {
-            width: initial;
-            left: initial;
-        }
     }
     @media only screen and (max-width: 540px) {
         grid-template-columns: 6fr 2fr 2fr;
@@ -308,6 +305,7 @@ header {
         height: 100%;
         a#logo::after {
             width: calc(4 / 10 * 100vw);
+            left: 10vw;
             top: 9.45vh;
         }
         a:not(#logo)::after {
@@ -322,6 +320,7 @@ header {
             width: 30vw;
             transform: translateY(0.02vh);
             border-top: 0.09vh solid rgba($link, 0.5);
+            box-shadow: none !important;
             .label {
                 font-size: 2.5vh;
             }

@@ -287,8 +287,8 @@ header .container:hover * {
 
 @media only screen and (min-width: 768px) and (max-width: 1280px) {
   header {
-    -ms-grid-columns: 6fr 8fr 3fr 3fr 3fr 2fr;
-        grid-template-columns: 6fr 8fr 3fr 3fr 3fr 2fr;
+    -ms-grid-columns: 8fr 6fr 3fr 3fr 3fr 2fr;
+        grid-template-columns: 8fr 6fr 3fr 3fr 3fr 2fr;
   }
   header a::after {
     width: calc(3 / 25 * 100vw);
@@ -313,15 +313,16 @@ header .container:hover * {
 
 @media only screen and (min-width: 540px) and (max-width: 768px) {
   header {
-    -ms-grid-columns: 6fr 3fr 3fr 3fr 3fr 2fr;
-        grid-template-columns: 6fr 3fr 3fr 3fr 3fr 2fr;
+    -ms-grid-columns: 8fr 1fr 3fr 3fr 3fr 2fr;
+        grid-template-columns: 8fr 1fr 3fr 3fr 3fr 2fr;
         grid-template-areas: "logo . about register login settings" ". . dropdown dropdown dropdown dropdown";
   }
   header a:not(#logo)::after {
     width: calc(3 / 20 * 100vw) !important;
+    left: initial;
   }
   header a#logo::after {
-    width: calc(5 / 20 * 100vw);
+    width: calc(6 / 20 * 100vw);
   }
   header #settingicon object {
     width: calc(2 / 20 * 100vw);
@@ -374,10 +375,6 @@ header .container:hover * {
   header .container object {
     height: 3vh;
   }
-  header a:not(#logo)::after {
-    width: initial;
-    left: initial;
-  }
 }
 
 @media only screen and (max-width: 540px) {
@@ -425,6 +422,7 @@ header .container:hover * {
   }
   header a#logo::after {
     width: calc(4 / 10 * 100vw);
+    left: 10vw;
     top: 9.45vh;
   }
   header a:not(#logo)::after {
@@ -441,6 +439,7 @@ header .container:hover * {
     -webkit-transform: translateY(0.02vh);
             transform: translateY(0.02vh);
     border-top: 0.09vh solid rgba(153, 153, 153, 0.5);
+    box-shadow: none !important;
   }
   header .container .label {
     font-size: 2.5vh;
