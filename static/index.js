@@ -110,7 +110,7 @@ window.addEventListener("DOMContentLoaded", () => {
             item.style.transform = "";
             setTimeout(() => {
                 item.style.transition = "";
-            }, 10);
+            }, 349);
         }, 350);
     }
 
@@ -136,7 +136,7 @@ window.addEventListener("DOMContentLoaded", () => {
             item.style.pointerEvents = "none";
             setTimeout(() => {
                 item.style.pointerEvents = "all";
-            }, 399);
+            }, 699);
             moveCircles(item, "circle", carouselItems + 1);
         });
         document.querySelectorAll(".mcircle").forEach(item => {
@@ -152,7 +152,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 ) {
                     scrollNodes();
                 }
-            }, 50);
+            }, 350);
         }, 350);
     }
 
