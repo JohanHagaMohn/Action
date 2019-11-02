@@ -471,9 +471,9 @@ main #explanation {
   grid-area: explanation;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: ". . . . . . . . . . . . ." ". . . lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals . . ." ". branch1 branch1 branch1 . task1 . task2 . task3 . task4 ." ". merged merged merged . branch2 branch2 branch2 . task5 . task6 ." ". . . . . . . . . . . . .";
-  -ms-grid-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
-      grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
+      grid-template-areas: ". . . . . . . . . . . . ." ". . . lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals . . ." ". branch1 branch1 branch1 branch1 task1 task1 task1 mini1 task2 task2 task2 ." ". merged merged merged merged branch2 branch2 branch2 branch2 task5 task5 task5 ." ". . . . . . . . . . . . .";
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   -ms-grid-rows: 9fr 11fr 40fr 40fr 16fr;
       grid-template-rows: 9fr 11fr 40fr 40fr 16fr;
 }
@@ -483,73 +483,199 @@ main #explanation #lifegoals {
   -ms-grid-column: 4;
   -ms-grid-column-span: 7;
   grid-area: lifegoals;
-  background-color: #88ffb4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #explanation #lifegoals h1 {
+  vertical-align: middle;
+  opacity: .75;
+  margin: 0;
+  padding: 0;
+}
+
+main #explanation .branch,
+main #explanation .task,
+main #explanation #mini1,
+main #explanation #merged {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main #explanation .branch div,
+main #explanation .task div,
+main #explanation #mini1 div,
+main #explanation #merged div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  opacity: .75;
+}
+
+main #explanation .line1, main #explanation .line2 {
+  opacity: 0.75;
+  padding: 0;
+  margin: 0;
+}
+
+main #explanation .time {
+  opacity: 0.5;
+  padding: 2.5%;
+  margin: 0;
+}
+
+main #explanation .branch > div {
+  border-radius: 10%;
+  height: 80%;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main #explanation .branch > div > p.line1 {
+  padding-right: 8px !important;
+}
+
+main #explanation .branch > div > p.line1, main #explanation .branch > div > p.line2 {
+  font-size: 2.25em;
+  padding: 0;
+  margin: 0;
+}
+
+main #explanation .branch > div > p.time {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+main #explanation .task > div {
+  border-radius: 50%;
+  height: 22.5vh;
+  width: 22.5vh;
+}
+
+main #explanation .task > div > p.line1, main #explanation .task > div > p.line2 {
+  font-size: 1.5em;
 }
 
 main #explanation #branch1 {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
-  -ms-grid-column-span: 3;
+  -ms-grid-column-span: 4;
   grid-area: branch1;
-  background-color: #ff88e3;
 }
 
 main #explanation #task1 {
   -ms-grid-row: 3;
   -ms-grid-column: 6;
+  -ms-grid-column-span: 3;
   grid-area: task1;
-  background-color: #fff588;
 }
 
 main #explanation #task2 {
   -ms-grid-row: 3;
-  -ms-grid-column: 8;
-  grid-area: task2;
-  background-color: #ffcf88;
-}
-
-main #explanation #task3 {
-  -ms-grid-row: 3;
   -ms-grid-column: 10;
-  grid-area: task3;
-  background-color: #ff9a88;
+  -ms-grid-column-span: 3;
+  grid-area: task2;
 }
 
-main #explanation #task4 {
+main #explanation #mini1 {
   -ms-grid-row: 3;
-  -ms-grid-column: 12;
-  grid-area: task4;
-  background-color: #9c88ff;
+  -ms-grid-column: 9;
+  grid-area: mini1;
+}
+
+main #explanation #mini1 > div {
+  height: 2vh;
+  width: 2vh;
+  border: 2px solid black;
+  border-radius: 50%;
 }
 
 main #explanation #merged {
   -ms-grid-row: 4;
   -ms-grid-column: 2;
-  -ms-grid-column-span: 3;
+  -ms-grid-column-span: 4;
   grid-area: merged;
-  background-color: #88fdff;
 }
 
 main #explanation #branch2 {
   -ms-grid-row: 4;
   -ms-grid-column: 6;
-  -ms-grid-column-span: 3;
+  -ms-grid-column-span: 4;
   grid-area: branch2;
-  background-color: #c388ff;
 }
 
-main #explanation #task5 {
+main #explanation #task3 {
   -ms-grid-row: 4;
   -ms-grid-column: 10;
+  -ms-grid-column-span: 3;
   grid-area: task5;
-  background-color: #ff8888;
 }
 
-main #explanation #task6 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 12;
-  grid-area: task6;
-  background-color: #92ff88;
+@media only screen and (min-width: 540px) and (max-width: 1068px) {
+  main #explanation {
+        grid-template-areas: ". . . . . . . . . . . . ." ". lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals ." ". branch1 branch1 branch1 branch1 branch1 branch1 task1 task1 task1 mini1 mini1 ." ". merged merged merged merged merged branch2 branch2 branch2 branch2 branch2 branch2 ." ". . . . . . . . . . . . .";
+  }
+  main #explanation #task2, main #explanation #task3 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 539px) {
+  main #explanation {
+        grid-template-areas: ". . . . . . . . . . . . ." ". lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals lifegoals ." ". branch1 branch1 branch1 branch1 branch1 branch1 branch1 task1 task1 task1 task1 ." ". merged merged merged merged merged merged merged merged . . . ." ". . . . . . . . . . . . .";
+    -ms-grid-rows: 9fr 11fr 60fr 20fr 16fr;
+        grid-template-rows: 9fr 11fr 60fr 20fr 16fr;
+  }
+  main #explanation #branch1 {
+    height: 70%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  main #explanation #task2, main #explanation #task3, main #explanation #mini1, main #explanation #branch2 {
+    display: none;
+  }
 }
 
 main #benefit {
@@ -569,28 +695,79 @@ main #benefit #focus {
   -ms-grid-row: 2;
   -ms-grid-column: 4;
   grid-area: focus;
-  background-color: #ffcf88;
+}
+
+main #benefit #focus h1 {
+  padding: 0;
+  margin: 0;
 }
 
 main #benefit #previous {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: previous;
-  background-color: #88ffb8;
+}
+
+main #benefit * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #benefit *:not(#focus) {
+  opacity: .75;
+}
+
+main #benefit .circle {
+  height: 70vh;
+  width: 70vh;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main #benefit .mcircle {
+  height: 2vh;
+  width: 2vh;
+  border-radius: 50%;
+}
+
+main #benefit .line1, main #benefit .line2 {
+  font-size: 4em;
+  padding: 0;
+  margin: 0;
+}
+
+main #benefit .time {
+  opacity: 0.5;
+  font-size: 2em;
+  padding: 2.5%;
+  margin: 0;
 }
 
 main #benefit #task {
   -ms-grid-row: 3;
   -ms-grid-column: 4;
   grid-area: task;
-  background-color: #bf88ff;
 }
 
 main #benefit #next {
   -ms-grid-row: 3;
   -ms-grid-column: 6;
   grid-area: next;
-  background-color: #ff8888;
 }
 
 main #join {
@@ -606,32 +783,79 @@ main #join {
       grid-template-rows: 9fr 11fr 70fr 5fr;
 }
 
+main #join * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: .75;
+}
+
+main #join * *:not(#message) {
+  -webkit-transition: opacity 100ms ease-in, -webkit-transform 200ms ease;
+  transition: opacity 100ms ease-in, -webkit-transform 200ms ease;
+  transition: opacity 100ms ease-in, transform 200ms ease;
+  transition: opacity 100ms ease-in, transform 200ms ease, -webkit-transform 200ms ease;
+  font-size: 2em;
+  height: 15vh;
+  width: 15vh;
+  border-radius: 50%;
+}
+
+main #join * *:not(#message) * {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+main #join * *:not(#message).circle {
+  height: 40vh;
+  width: 40vh;
+}
+
+main #join * *:not(#message).circle:hover {
+  cursor: pointer;
+  opacity: 1;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+main #join * *:not(#message).circle:hover * {
+  opacity: 1;
+}
+
 main #join #message {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   -ms-grid-column-span: 3;
   grid-area: message;
-  background-color: #ffcf88;
 }
 
 main #join #register {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: register;
-  background-color: #88ffb8;
 }
 
 main #join #or {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: or;
-  background-color: #bf88ff;
+}
+
+main #join #or p {
+  font-size: 4em;
+  opacity: 0.75;
 }
 
 main #join #login {
   -ms-grid-row: 3;
   -ms-grid-column: 4;
   grid-area: login;
-  background-color: #ff8888;
 }
 /*# sourceMappingURL=index.css.map */

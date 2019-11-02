@@ -5,75 +5,126 @@
 {% endblock %} {% block body %}
 <div id="landing"></div>
 <section id="intro">
-    <div id="title">
-        <h1 id="text1">Your task manager...</h1>
-        <div id="carousel">
-            <div id="mcircle1" class="mcircle"></div>
-            <div id="circle1" class="circle">
-                <span class="line1">Read 25</span>
-                <span class="line2">pages</span>
-                <span class="time">15m</span>
-            </div>
-            <div id="mcircle2" class="mcircle"></div>
-            <div id="circle2" class="circle">
-                <span class="line1">Run 5</span>
-                <span class="line2">miles</span>
-                <span class="time">20m</span>
-            </div>
-            <div id="mcircle3" class="mcircle"></div>
-            <div id="circle3" class="circle">
-                <span class="line1">Cook</span>
-                <span class="line2">dinner</span>
-                <span class="time">25m</span>
-            </div>
-            <div id="mcircle4" class="mcircle"></div>
-            <div id="circle4" class="circle">
-                <span class="line1">Walk</span>
-                <span class="line2">the dog</span>
-                <span class="time">20m</span>
-            </div>
-            <div id="mcircle5" class="mcircle"></div>
-            <div id="circle5" class="circle">
-                <span class="line1">Buy</span>
-                <span class="line2">groceries</span>
-                <span class="time">15m</span>
-            </div>
-            <div id="mcircle6" class="mcircle"></div>
-        </div>
-        <h1 id="text2">...reinvented.</h1>
+  <div id="title">
+    <h1 id="text1">Your task manager...</h1>
+    <div id="carousel">
+      <div id="mcircle1" class="mcircle"></div>
+      <div id="circle1" class="circle clickable">
+        <span class="line1">Read 25</span>
+        <span class="line2">pages</span>
+        <span class="time">15m</span>
+      </div>
+      <div id="mcircle2" class="mcircle"></div>
+      <div id="circle2" class="circle clickable">
+        <span class="line1">Run 5</span>
+        <span class="line2">miles</span>
+        <span class="time">20m</span>
+      </div>
+      <div id="mcircle3" class="mcircle"></div>
+      <div id="circle3" class="circle clickable">
+        <span class="line1">Cook</span>
+        <span class="line2">dinner</span>
+        <span class="time">25m</span>
+      </div>
+      <div id="mcircle4" class="mcircle"></div>
+      <div id="circle4" class="circle clickable">
+        <span class="line1">Walk</span>
+        <span class="line2">the dog</span>
+        <span class="time">20m</span>
+      </div>
+      <div id="mcircle5" class="mcircle"></div>
+      <div id="circle5" class="circle clickable">
+        <span class="line1">Buy</span>
+        <span class="line2">groceries</span>
+        <span class="time">15m</span>
+      </div>
+      <div id="mcircle6" class="mcircle"></div>
     </div>
-    <a id="arrow" href="#explanation">
-        <object
-            id="down"
-            type="image/svg+xml"
-            data="/static/chevron-down-solid.svg"
-            >&#8595;</object
-        >
-    </a>
+    <h1 id="text2">...reinvented.</h1>
+  </div>
+  <a id="arrow" href="#explanation">
+    <object id="down" type="image/svg+xml" data="/static/chevron-down-solid.svg">&#8595;</object>
+  </a>
 </section>
 <section id="explanation">
-    <div id="lifegoals"></div>
-    <div id="branch1"></div>
-    <div id="task1"></div>
-    <div id="task2"></div>
-    <div id="task3"></div>
-    <div id="task4"></div>
-    <div id="merged"></div>
-    <div id="branch2"></div>
-    <div id="task5"></div>
-    <div id="task6"></div>
+  <div id="lifegoals">
+    <h1>Manage your goals...</h1>
+  </div>
+  <div id="branch1" class="branch">
+    <div class="circle">
+      <p class="line1">Get back</p>
+      <p class="line2">in shape</p>
+      <p class="time">by Thanksgiving.</p>
+    </div>
+  </div>
+  <div id="task1" class="task">
+    <div class="circle">
+      <p class="line1">Attend a</p>
+      <p class="line2">yoga session</p>
+      <p class="time">65 minutes</p>
+    </div>
+  </div>
+  <div id="mini1">
+    <div class="mcircle"></div>
+  </div>
+  <div id="task2" class="task">
+    <div class="circle">
+      <p class="line1">Bike with</p>
+      <p class="line2">Mike</p>
+      <p class="time">35 minutes</p>
+    </div>
+  </div>
+  <div id="merged">
+  </div>
+  <div id="branch2" class="branch">
+    <div class="circle">
+      <p class="line1">Learn to</p>
+      <p class="line2">play guitar</p>
+      <p class="time">by May auditions.</p>
+    </div>
+  </div>
+  <div id="task3" class="task">
+    <div class="circle">
+      <p class="line1">Learn chord</p>
+      <p class="line2">progressions</p>
+      <p class="time">45 minutes</p>
+    </div>
+  </div>
 </section>
 <section id="benefit">
-    <div id="focus"></div>
-    <div id="previous"></div>
-    <div id="task"></div>
-    <div id="next"></div>
+  <div id="focus">
+    <h1>...one at the time.</h1>
+  </div>
+  <div id="previous">
+    <div class="mcircle"></div>
+  </div>
+  <div id="task">
+    <div class="circle">
+      <p class="line1">Conjugate five</p>
+      <p class="line2">French verbs</p>
+      <p class="time">15 minutes</p>
+    </div>
+  </div>
+  <div id="next">
+    <div class="mcircle"></div>
+  </div>
 </section>
 <section id="join">
-    <div id="message"></div>
-    <div id="register"></div>
-    <div id="or"></div>
-    <div id="login"></div>
+  <h1 id="message">Organize your life</h1>
+  <div id="register">
+    <div class="circle">
+      <a href="{{ url_for('auth.register') }}">Register</a>
+    </div>
+  </div>
+  <div id="or">
+    <p>or</p>
+  </div>
+  </div>
+  <div id="login">
+    <div class="circle">
+      <a href="{{ url_for('auth.login') }}">log in.</a>
+    </div>
+  </div>
 </section>
 
 {% endblock %}
