@@ -54,6 +54,19 @@ main > div p {
   margin: 0;
 }
 
+main > div a {
+  -webkit-transition: -webkit-transform 200ms ease-in;
+  transition: -webkit-transform 200ms ease-in;
+  transition: transform 200ms ease-in;
+  transition: transform 200ms ease-in, -webkit-transform 200ms ease-in;
+}
+
+main > div a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  opacity: 1;
+}
+
 main > div #git {
   height: 50px;
   z-index: -1;
