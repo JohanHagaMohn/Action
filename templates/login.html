@@ -1,5 +1,25 @@
 {% extends "layout.html" %} {% block head %}
 <title>Action - Login</title>
+<link rel="stylesheet" href="/static/login.css" />
 {% endblock %} {% block body %}
-<h1>Action</h1>
+<div>
+    <h1>Login</h1>
+    <form action="/register" method="POST">
+        <div id="username">
+            <input type="username" name="username" autofocus="" required />
+            <label for="username">
+                <span>Username</span>
+            </label>
+        </div>
+        <div id="password">
+            <input type="password" name="password" autofocus="" required />
+            <label for="password">
+                <span>Password</span>
+            </label>
+        </div>
+        <div id="submit">
+            <button type="submit">Log in</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

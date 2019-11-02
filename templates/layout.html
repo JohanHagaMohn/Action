@@ -1,99 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="/static/layout.css" />
-        <script type="text/javascript" src="/static/script.js"></script>
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/static/favicon/apple-touch-icon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/static/favicon/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/static/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/static/favicon/site.webmanifest" />
-        <link
-            rel="mask-icon"
-            href="/static/favicon/safari-pinned-tab.svg"
-            color="#3ad1fe"
-        />
-        <link rel="shortcut icon" href="/static/favicon/favicon.ico" />
-        <meta name="msapplication-TileColor" content="#2d89ef" />
-        <meta
-            name="msapplication-config"
-            content="/static/favicon/browserconfig.xml"
-        />
-        <meta name="theme-color" content="#ffffff" />
-        {% block head %}{% endblock %}
-    </head>
-    <body>
-        <header>
-            <a href="{{ url_for('main.index') }}" id="logo">
-                <object type="image/svg+xml" data="/static/Action Logo.svg"
-                    ><img src="/static/Action Logo.jpg" alt="Action"
-                /></object>
-            </a>
-            <a href="{{ url_for('main.about') }}" id="about">
-                <h3>About</h3>
-            </a>
-            <a href="{{ url_for('auth.register') }}" id="register">
-                <h3>Register</h3>
-            </a>
-            <a href="{{ url_for('auth.login') }}" id="login">
-                <h3>Login</h3>
-            </a>
-            <!-- Icons provided by fontawesome.com -->
-            <div id="settingicon">
-                <object
-                    id="bars"
-                    type="image/svg+xml"
-                    data="/static/bars-solid.svg"
-                    >&#9776;</object
-                >
-                <object
-                    id="profile"
-                    type="image/svg+xml"
-                    data="/static/user-circle-solid.svg"
-                    >&#128100;</object
-                >
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/static/layout.css" />
+    <script type="text/javascript" src="/static/script.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/static/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#3ad1fe" />
+    <link rel="shortcut icon" href="/static/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta name="msapplication-config" content="/static/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        <a href="{{ url_for('main.index') }}" id="logo">
+            <object type="image/svg+xml" data="/static/Action Logo.svg"><img src="/static/Action Logo.jpg"
+                    alt="Action" /></object>
+        </a>
+        <a href="{{ url_for('main.about') }}" id="about">
+            <h3>About</h3>
+        </a>
+        <a href="{{ url_for('auth.register') }}" id="register">
+            <h3>Register</h3>
+        </a>
+        <a href="{{ url_for('auth.login') }}" id="login">
+            <h3>Login</h3>
+        </a>
+        <!-- Icons provided by fontawesome.com -->
+        <div id="settingicon">
+            <object id="bars" type="image/svg+xml" data="/static/bars-solid.svg">&#9776;</object>
+            <object id="profile" type="image/svg+xml" data="/static/user-circle-solid.svg">&#128100;</object>
+        </div>
+        <div id="icons">
+            <div id="nightMode" class="container">
+                <h4 id="nightLabel" class="label">Dark Mode</h4>
+                <object id="sun" type="image/svg+xml" data="/static/sun-solid.svg">&#9728;</object>
+                <object id="moon" type="image/svg+xml" data="/static/moon-solid.svg">&#9790;</object>
             </div>
-            <div id="icons">
-                <div id="nightMode" class="container">
-                    <h4 id="nightLabel" class="label">Dark Mode</h4>
-                    <object
-                        id="sun"
-                        type="image/svg+xml"
-                        data="/static/sun-solid.svg"
-                        >&#9728;</object
-                    >
-                    <object
-                        id="moon"
-                        type="image/svg+xml"
-                        data="/static/moon-solid.svg"
-                        >&#9790;</object
-                    >
-                </div>
-            </div>
-        </header>
-        <main>
-            {% block body %}{% endblock %}
-        </main>
-        <footer>
-            <a href="http://www.johanhagamohn.com" id="author"
-                ><h6 id="copyright">&#9400; Johan Haga Mohn 2019</h6></a
-            >
-        </footer>
-    </body>
+        </div>
+    </header>
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+    <footer>
+        <a href="http://www.johanhagamohn.com" id="author">
+            <h6 id="copyright">&#9400; Johan Haga Mohn 2019</h6>
+        </a>
+    </footer>
+</body>
+
 </html>

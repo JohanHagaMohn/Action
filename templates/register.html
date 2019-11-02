@@ -1,23 +1,37 @@
 {% extends "layout.html" %} {% block head %}
 <title>Action - Register</title>
+<link rel="stylesheet" href="/static/register.css" />
 {% endblock %} {% block body %}
-<h1>Register</h1>
-
-<form action="/register" method="POST">
-    <input type="email" name="email" placeholder="Email" autofocus="" />
-    <input type="text" name="username" placeholder="Username" autofocus="" />
-    <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        autofocus=""
-    />
-    <input
-        type="password"
-        name="confirmpassword"
-        placeholder="Confirm password"
-        autofocus=""
-    />
-    <button type="submit">Register</button>
-</form>
+<div>
+    <h1>Register</h1>
+    <form action="/register" method="POST">
+        <div id="username">
+            <input type="username" name="username" autofocus="" required />
+            <label for="username">
+                <span>Username</span>
+            </label>
+        </div>
+        <div id="email">
+            <input type="text" name="email" autofocus="" required />
+            <label for="email">
+                <span>Email</span>
+            </label>
+        </div>
+        <div id="password">
+            <input type="password" name="password" autofocus="" required />
+            <label for="password">
+                <span>Password</span>
+            </label>
+        </div>
+        <div id="password-confirmation">
+            <input type="password" name="confirmpassword" autofocus="" required />
+            <label for="confirmpassword">
+                <span>Confirm password</span>
+            </label>
+        </div>
+        <div id="submit">
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

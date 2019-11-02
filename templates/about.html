@@ -1,5 +1,16 @@
 {% extends "layout.html" %} {% block head %}
 <title>Action - About</title>
+<link rel="stylesheet" href="/static/about.css" />
 {% endblock %} {% block body %}
-<h1>Action</h1>
+<div>
+    <h1>Action</h1>
+    <p>This is a prototype application written as a final project for EdX's CS50.</p>
+    <p>It is written in python using the flask framework in tandem with a PostgreSQL database.</p>
+    <p>While the primary purpose of the project was to develop back-end skills, the design and javascript animations are
+        what ultimately ended up taking the longest time.</p>
+    <p>Take a look around, or view the source code on GitHub.</p>
+    <a target="_blank" href="https://github.com/JohanHagaMohn/Action">
+        <img id="git" type="image/svg+xml" src="/static/github-logo.svg" alt="GitHub link"></img>
+    </a>
+</div>
 {% endblock %}
