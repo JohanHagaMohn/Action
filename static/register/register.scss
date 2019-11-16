@@ -1,0 +1,109 @@
+main {
+    height: 86vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    > div {
+        color: inherit;
+        height: 50vh;
+        width: 50vh;
+        margin: 10px;
+        padding: 30px;
+        border: 2px solid rgba(153, 153, 153, .75);
+        opacity: .75;
+        border-radius: 5%;
+        display: flex;
+        flex-direction: column;
+        align-content: space-around;
+        align-items: center;
+        form {
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-content: space-between;
+            align-items: center;
+            width: 75%;
+            div {
+                color: inherit;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                label {
+                    position: absolute;
+                    color: inherit;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 6.5vh;
+                    pointer-events: none;
+                    border-bottom: 1px solid #777;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 6.5vh;
+                        left: 0;
+                        opacity: 0;
+                        border-bottom: 1px solid #3ad1fe;
+                    }
+                    span {
+                        position: absolute;
+                        color: inherit;
+                        bottom: 5px;
+                        left: 0;
+                        transition: all 200ms ease;
+                    }
+                }
+            }
+            input:focus + label > span, input:valid + label > span {
+                transform: translateY(-150%);
+                font-size: 0.75em;
+                color: #3ad1fe;
+            }
+            input:focus + label::after, input:valid + label::after {
+                opacity: 1;
+            }
+            
+            input, button {
+                color: inherit;
+                font-size: 1em;
+                background: transparent;
+                height: 8vh;
+                width: fill;
+                border: none;
+                outline: none;
+            }
+            #submit {
+                height: 20%;
+                * {
+                    color: white;
+                    font-weight:600;
+                }
+                background-color: rgba(58, 209, 254, 0.80);
+            }
+            #submit {
+                transition: background-color 200ms ease;
+                &:hover {
+                    *{
+                        cursor: pointer;
+                    }
+                    background-color: rgba(58, 209, 254, 1);
+                }
+            }
+            
+            
+        }
+        h1 {
+            opacity: 1;
+            padding-bottom: 10px;
+        }
+        
+    }
+}

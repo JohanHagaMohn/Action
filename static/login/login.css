@@ -1,0 +1,152 @@
+main {
+  height: 86vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+main > div {
+  height: 50vh;
+  width: 50vh;
+  margin: 10px;
+  padding: 30px;
+  border: 2px solid rgba(153, 153, 153, 0.75);
+  opacity: .75;
+  border-radius: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main > div form {
+  color: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 75%;
+}
+
+main > div form div {
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+main > div form div label {
+  position: absolute;
+  color: inherit;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6.5vh;
+  pointer-events: none;
+  border-bottom: 1px solid #777;
+}
+
+main > div form div label::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6.5vh;
+  left: 0;
+  opacity: 0;
+  border-bottom: 1px solid #3ad1fe;
+}
+
+main > div form div label span {
+  position: absolute;
+  color: inherit;
+  bottom: 5px;
+  left: 0;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+main > div form input:focus + label > span, main > div form input:valid + label > span {
+  -webkit-transform: translateY(-150%);
+          transform: translateY(-150%);
+  font-size: 0.75em;
+  color: #3ad1fe;
+}
+
+main > div form input:focus + label::after, main > div form input:valid + label::after {
+  opacity: 1;
+}
+
+main > div form input, main > div form button {
+  color: inherit;
+  font-size: 1em;
+  background: transparent;
+  height: 8vh;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill;
+  border: none;
+  outline: none;
+}
+
+main > div form #submit {
+  height: 40%;
+  background-color: #3ad1fe;
+  opacity: 0.75;
+}
+
+main > div form #submit * {
+  color: white;
+  font-weight: 600;
+}
+
+main > div form #submit {
+  -webkit-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+}
+
+main > div form #submit:hover {
+  opacity: 1;
+}
+
+main > div form #submit:hover * {
+  cursor: pointer;
+}
+
+main > div h1 {
+  opacity: 1;
+  padding-bottom: 10px;
+}
+/*# sourceMappingURL=login.css.map */
