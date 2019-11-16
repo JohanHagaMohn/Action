@@ -68,6 +68,26 @@ main > div form div {
   position: relative;
 }
 
+main > div form div#error {
+  height: 5vh;
+  background-color: #bb0000;
+  margin-bottom: 1.5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main > div form div#error * {
+  color: white;
+  font-weight: 800;
+}
+
 main > div form div label {
   position: absolute;
   color: inherit;

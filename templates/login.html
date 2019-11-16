@@ -4,7 +4,12 @@
 {% endblock %} {% block body %}
 <div>
     <h1>Login</h1>
-    <form action="/register" method="POST">
+    <form action="/login" method="POST">
+        {% if error %}
+        <div id="error">
+            <span>Invalid credentials</span>
+        </div>
+        {% endif %}
         <div id="username">
             <input type="username" name="username" autofocus="" required />
             <label for="username">

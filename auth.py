@@ -1,27 +1,33 @@
 from flask import Blueprint, render_template, redirect, url_for, request
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user
 from models import Users
 from application import db
 
 auth = Blueprint('auth', __name__)
 
 
-@auth.route('/login', methods=["GET"])
+@auth.route('/login', methods=["GET", "POST"])
 def login():
-    return render_template("login.html"), 200
+    error = False
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+        remember = True if request.form.get("remember") else False
 
+        user = Users.query.filter_by(username=username).first()
 
-@auth.route('/login', methods=["POST"])
-def login_post():
-    return render_template("login.html"), 200
+        if not user or not check_password_hash(user.password, password):
+            error = True
+        else:
+            login_user(user)
+            return redirect(url_for("main.index"))
+
+    return render_template("login.html", error=error), 200
 
 
 @auth.route('/register', methods=["GET", "POST"])
 def register():
-    username = request.form.get("username")
-    email = request.form.get("email")
-    password = request.form.get("password")
-    confirm = request.form.get("confirm")
     error = {
         "username": None,
         "email": None,
@@ -35,6 +41,10 @@ def register():
         "confirm": ""
     }
     if request.method == "POST":
+        username = request.form.get("username")
+        email = request.form.get("email")
+        password = request.form.get("password")
+        confirm = request.form.get("confirm")
         if not username:
             error["username"] = "Please provide a username"
         elif len(username) < 8:
