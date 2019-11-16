@@ -6,27 +6,28 @@
     <h1>Register</h1>
     <form action="/register" method="POST">
         <div id="username">
-            <input type="username" name="username" autofocus="" required />
-            <label for="username">
-                <span>Username</span>
+            <input type="username" name="username" autofocus="" value="{{ user.username }}" required />
+            <label for="username" {{ "style=border-bottom-color:red;z-index:initial;" if error.username }}>
+                <span {{ "style=color:red" if error.username }}>{{ error.username or "Username"}}</span>
             </label>
         </div>
         <div id="email">
-            <input type="text" name="email" autofocus="" required />
-            <label for="email">
-                <span>Email</span>
+            <input type="text" name="email" autofocus="" value="{{ user.email }}" required />
+            <label for="email" {{ "style=border-bottom-color:red;z-index:initial;" if error.email }}>
+                <span {{ "style=color:red" if error.email }}>{{ error.email or "Email"}}</span>
             </label>
         </div>
         <div id="password">
-            <input type="password" name="password" autofocus="" required />
-            <label for="password">
-                <span>Password</span>
+            <input type="password" name="password" autofocus="" value="{{ user.password }}" required />
+            <label for="password" {{ "style=border-bottom-color:red;z-index:initial;" if error.password }}>
+                <span {{ "style=color:red;z-index:3" if error.password }}>{{ error.password or "Password"}}</span>
             </label>
         </div>
         <div id="password-confirmation">
-            <input type="password" name="confirmpassword" autofocus="" required />
-            <label for="confirmpassword">
-                <span>Confirm password</span>
+            <input type="password" name="confirm" autofocus="" value="{{ user.confirm }}" required />
+            <label for="confirm" {{ "style=border-bottom-color:red;z-index:initial;" if error.confirm }}>
+                <span
+                    {{ "style=color:red;z-index:10" if error.confirm }}>{{ error.confirm or "Confirm Password"}}</span>
             </label>
         </div>
         <div id="submit">

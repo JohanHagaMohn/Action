@@ -64,7 +64,7 @@ main > div form {
 main > div form div {
   color: inherit;
   width: 100%;
-  height: 100%;
+  height: 8.5vh;
   position: relative;
 }
 
@@ -76,10 +76,13 @@ main > div form div label {
   width: 100%;
   height: 6.5vh;
   pointer-events: none;
+}
+
+main > div form div label:not(#checkboxLabel) {
   border-bottom: 1px solid #777;
 }
 
-main > div form div label::after {
+main > div form div label:not(#checkboxLabel)::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -98,15 +101,48 @@ main > div form div label span {
   transition: all 200ms ease;
 }
 
-main > div form input:focus + label > span, main > div form input:valid + label > span {
+main > div form input:focus + label > span:not(#checkboxSpan), main > div form input:valid + label > span:not(#checkboxSpan) {
   -webkit-transform: translateY(-150%);
           transform: translateY(-150%);
   font-size: 0.75em;
   color: #3ad1fe;
 }
 
-main > div form input:focus + label::after, main > div form input:valid + label::after {
+main > div form input:focus + label:not(#checkboxLabel)::after, main > div form input:valid + label:not(#checkboxLabel)::after {
   opacity: 1;
+}
+
+main > div form #remember input:checked + label > span {
+  color: #3ad1fe;
+}
+
+main > div form #remember input:checked + label::after {
+  opacity: 1;
+}
+
+main > div form input[type="checkbox"] {
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  top: 2vh;
+  width: 3.5vh;
+  height: 3.5vh;
+  position: relative;
+  left: calc(100% - 4vh - 2px);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: rgba(58, 209, 254, 0);
+  border: 2px solid #3ad1fe;
+  border-radius: 10%;
+}
+
+main > div form input[type="checkbox"]:hover {
+  cursor: pointer;
+  background-color: rgba(58, 209, 254, 0.75);
+}
+
+main > div form input[type="checkbox"]:checked {
+  background-color: #3ad1fe;
 }
 
 main > div form input, main > div form button {
@@ -122,19 +158,15 @@ main > div form input, main > div form button {
 }
 
 main > div form #submit {
-  height: 40%;
   background-color: #3ad1fe;
-  opacity: 0.75;
+  opacity: .75;
+  -webkit-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
 }
 
 main > div form #submit * {
   color: white;
   font-weight: 600;
-}
-
-main > div form #submit {
-  -webkit-transition: opacity 200ms ease;
-  transition: opacity 200ms ease;
 }
 
 main > div form #submit:hover {
