@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user
+from flask_login import login_user, logout_user, login_required
 from models import Users
 from application import db
 
@@ -20,8 +20,8 @@ def login():
         if not user or not check_password_hash(user.password, password):
             error = True
         else:
-            login_user(user)
-            return redirect(url_for("main.index"))
+            login_user(user, remember=remember)
+            return redirect(url_for("main.app"))
 
     return render_template("login.html", error=error), 200
 
@@ -49,6 +49,8 @@ def register():
             error["username"] = "Please provide a username"
         elif len(username) < 8:
             error["username"] = "Please provide a longer username"
+        elif len(username) > 32:
+            error["username"] = "Please provide a shorter username"
         elif not username.isalnum():
             error["username"] = "Please use alphanumeric characters"
         elif Users.query.filter_by(username=username).first():
@@ -60,6 +62,8 @@ def register():
             error["email"] = "Please provide an email"
         elif "@" not in email or "." not in email:
             error["email"] = "Please provide a valid email"
+        elif len(email) > 64:
+            error["email"] = "Please provide a shorter email"
         elif Users.query.filter_by(email=email).first():
             error["email"] = "Please use a different email"
         else:
@@ -69,6 +73,8 @@ def register():
             error["password"] = "Please provide a password"
         elif len(password) < 8:
             error["password"] = "Please provide a longer password"
+        elif len(password) > 64:
+            error["password"] = "Please provide a shorter password"
         elif not username.isalnum():
             error["password"] = "Please use alphanumeric characters"
         else:
@@ -88,7 +94,7 @@ def register():
 
         if all(value != "" for value in user.values()) and all(not value for value in error.values()):
 
-            user = Users(email=email, name=name,
+            user = Users(email=email, username=username,
                          password=generate_password_hash(password, method="sha256"))
 
             db.session.add(user)
@@ -100,5 +106,7 @@ def register():
 
 
 @auth.route('/logout', methods=["GET"])
+@login_required
 def logout():
+    logout_user()
     return redirect(url_for('main.index')), 302

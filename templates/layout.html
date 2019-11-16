@@ -25,6 +25,14 @@
             <object type="image/svg+xml" data="/static/layout/media/Action Logo.svg"><img
                     src="/static/layout/media/Action Logo.jpg" alt="Action" /></object>
         </a>
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('main.about') }}" id="register">
+            <h3>About</h3>
+        </a>
+        <a href="{{ url_for('auth.logout') }}" id="login">
+            <h3>Logout</h3>
+        </a>
+        {% else %}
         <a href="{{ url_for('main.about') }}" id="about">
             <h3>About</h3>
         </a>
@@ -34,6 +42,7 @@
         <a href="{{ url_for('auth.login') }}" id="login">
             <h3>Login</h3>
         </a>
+        {% endif %}
         <!-- Icons provided by fontawesome.com -->
         <div id="settingicon">
             <object id="bars" type="image/svg+xml" data="/static/layout/media/bars-solid.svg">&#9776;</object>
