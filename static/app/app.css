@@ -1,6 +1,223 @@
-h1 {
-  font-size: 50px;
-  height: 86vh;
+main {
+  min-height: 86vh;
+  position: relative;
+}
+
+#welcome {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: inherit;
+  position: absolute;
+  -webkit-transition: opacity 500ms ease;
+  transition: opacity 500ms ease;
+}
+
+#welcome > div {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 50vh;
+  width: 50vh;
+  margin: 10px;
+  padding: 30px;
+  border: 2px solid rgba(153, 153, 153, 0.75);
+  opacity: .75;
+  border-radius: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#welcome > div p {
+  font-weight: 400;
+  font-size: 1.5em;
+  opacity: .75;
+}
+
+#welcome > div h1 {
+  opacity: 1;
+  font-size: 35px;
+}
+
+#welcome > div #submit, #welcome > div #submitForm {
+  color: inherit;
+  width: 100%;
+  height: 8.5vh;
+  position: relative;
+  background-color: #3ad1fe;
+  opacity: .75;
+  -webkit-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+}
+
+#welcome > div #submit *, #welcome > div #submitForm * {
+  color: white !important;
+  font-weight: 600;
+  color: inherit;
+  font-size: 1em;
+  background: transparent;
+  height: 8vh;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill;
+  border: none;
+  outline: none;
+}
+
+#welcome > div #submit:hover, #welcome > div #submitForm:hover {
+  opacity: 1;
+}
+
+#welcome > div #submit:hover *, #welcome > div #submitForm:hover * {
+  cursor: pointer;
+}
+
+#tasks, #newBranch {
+  overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  opacity: .25;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+#tasks > *, #newBranch > * {
+  width: 100vw;
+  height: 21.5vh;
+}
+
+#newBranch {
+  height: calc(15vh + 2px);
+  pointer-events: none;
+}
+
+#newBranch .circle {
+  position: absolute;
+  margin: 5vh;
+  font-size: 2em;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+  border-color: #999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#newBranch .circle:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#newBranch .circle .line1, #newBranch .circle .line2 {
+  background-color: #999;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  height: 2.5vh;
+  width: 2px;
+  border-radius: 1px;
+  opacity: 1;
+}
+
+#newBranch .circle .line1 {
+  -webkit-transform: translateX(1px);
+          transform: translateX(1px);
+}
+
+#newBranch .circle .line2 {
+  -webkit-transform: translateX(-1px) rotate(90deg);
+          transform: translateX(-1px) rotate(90deg);
+}
+
+#branchForm {
+  position: absolute;
+  height: calc(15vh + 2px);
+  left: calc(15vh + 2px);
+  width: calc(100vw - calc(15vh + 2px));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  opacity: 0;
+  pointer-events: None;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  color: inherit;
+  display: flex;
+  flex-direction: row;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#branchForm * {
+  height: 5vh;
+  width: 10vh;
+}
+
+#branchForm div {
+  color: inherit;
+  width: 25%;
+  height: 100%;
+  position: relative;
+}
+
+#branchForm div textarea, #branchForm div input {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#branchForm div textarea {
+  resize: none;
+}
+
+#branchForm div textarea, #branchForm div input, #branchForm div label {
+  width: 95% !important;
+}
+
+#branchForm div#error {
+  height: 5vh;
+  background-color: #bb0000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,5 +227,148 @@ h1 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#branchForm div#error * {
+  color: white;
+  font-weight: 800;
+}
+
+#branchForm div label {
+  position: absolute;
+  color: inherit;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+  border-bottom: 1px solid #777;
+}
+
+#branchForm div label::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  border-bottom: 1px solid #3ad1fe;
+}
+
+#branchForm div label span {
+  position: absolute;
+  color: inherit;
+  width: 100%;
+  left: 0;
+  top: 10%;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+#branchForm input:focus + label > span, #branchForm textarea:focus + label > span {
+  font-size: 0.75em;
+  color: #3ad1fe;
+}
+
+#branchForm input:valid + label > span, #branchForm textarea:valid + label > span {
+  color: #3ad1fe;
+}
+
+#branchForm input:focus + label::after, #branchForm input:valid + label:after, #branchForm textarea:focus + label::after, #branchForm textarea:valid + label:after {
+  opacity: 1;
+}
+
+#branchForm input, #branchForm button, #branchForm textarea {
+  color: inherit;
+  font-size: 1em;
+  background: transparent;
+  float: bottom;
+  height: 50%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill;
+  border: none;
+  outline: none;
+}
+
+#branchForm #submitForm {
+  height: 100%;
+  background-color: #3ad1fe;
+  opacity: .75;
+  -webkit-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+}
+
+#branchForm #submitForm * {
+  color: white;
+  font-weight: 600;
+  height: 100%;
+}
+
+#branchForm #submitForm:hover {
+  opacity: 1;
+}
+
+#branchForm #submitForm:hover * {
+  cursor: pointer;
+}
+
+#tasks > div, #newBranch {
+  padding: 3vh;
+}
+
+#tasks {
+  padding: 3vh;
+}
+
+#tasks > div {
+  height: calc(70vh / 3);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+}
+
+#tasks > div > div {
+  border: 2px solid #999;
+  border-radius: 10px;
+  height: 100%;
+  width: 60vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  pointer-events: all;
+}
+
+#tasks > div > div, #tasks > div > div * {
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+#tasks > div > div * {
+  z-index: -1;
+  pointer-events: none;
+}
+
+#tasks > div > div:hover {
+  cursor: pointer;
+  border-color: #b13838;
+  opacity: .75;
+}
+
+#tasks > div > div:hover h2 {
+  color: #b13838;
+  opacity: 1;
 }
 /*# sourceMappingURL=app.css.map */

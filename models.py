@@ -8,7 +8,7 @@ class Users(UserMixin, db.Model):
     username = db.Column(db.VARCHAR(32), unique=True, nullable=False)
     email = db.Column(db.VARCHAR(64), unique=True, nullable=False)
     password = db.Column(db.VARCHAR(96), unique=False, nullable=False)
-    branches = db.relationship("Branches", backref="Users", lazy=True)
+    branches = db.relationship("Branches", backref="Users", lazy="dynamic", cascade = "all, delete, delete-orphan")
 
     def add_branch(self, branch, description, deadline):
         db.session.add(Branches(user_id=self.id, branch=branch,
@@ -29,6 +29,10 @@ class Branches(UserMixin, db.Model):
     def add_task(self, task, description, time):
         db.session.add(Tasks(branch_id=self.id, task=task,
                              description=description, time=time))
+        db.session.commit()
+    
+    def complete(self):
+        db.session.delete(self)
         db.session.commit()
 
 

@@ -1,8 +1,59 @@
 {% extends "layout.html" %} {% block head %}
 <title>Action - App</title>
 <link rel="stylesheet" href="/static/app/app.css" />
+<script type="text/javascript" src="/static/app/app.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 {% endblock %} {% block body %}
-<section>
-    <h1>Welcome, {{ name }}!</h1>
+{% if not user.branches %}
+<section id="welcome">
+    <div>
+        <h1>Welcome, {{ user.username }}!</h1>
+        <p>Thank you for joining Action!</p>
+        <div id="submit">
+            <button type="submit">Get started</button>
+        </div>
+    </div>
+</section>
+{% else %}
+<section id="tasks">
+    {% for branch in user.branches%}
+    <div>
+        <div>
+            <h2>{{ branch.branch }}</h2>
+            <span>{{ branch.description }}</span>
+            <span> {{ branch.deadline }}</span>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endif %}
+<section id="newBranch">
+    <div class="circle">
+        <div class="line1" style="opacity:1;"></div>
+        <div class="line2"></div>
+    </div>
+    <form id="branchForm" action="/app" method="POST">
+        <div>
+            <textarea form="branchForm" maxlength="64" wrap="hard" cols="2" name="goal" autofocus required></textarea>
+            <label for="goal">
+                <span>What's your long-term goal?</span>
+            </label>
+        </div>
+        <div>
+            <textarea form="branchForm" maxlength="64" name="description" autofocus="" required></textarea>
+            <label for="description">
+                <span>Provide a short description:</span>
+            </label>
+        </div>
+        <div>
+            <input type="date" name="deadline" autofocus="" required />
+            <label for="deadline">
+                <span>Deadline:</span>
+            </label>
+        </div>
+        <div id="submitForm">
+            <button type="submit">Add goal</button>
+        </div>
+    </form>
 </section>
 {% endblock %}
