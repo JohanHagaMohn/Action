@@ -34,7 +34,7 @@ main {
             opacity: 1;
             font-size: 35px;
         }
-        #submit, #submitForm {
+        #submit, .submitForm {
             * {
                 color: white !important;
                 font-weight: 600;
@@ -79,36 +79,39 @@ main {
     height: calc(15vh + 2px);
     pointer-events: none;
     .circle {
-        &:hover {
-            cursor: pointer;
-            background-color: rgba(0,0,0,0.1);
-            transform: scale(1.2);
-        }
         position: absolute;
         margin: 5vh;
-        font-size: 2em;
-        transition: all 200ms ease;
         height: 5vh;
         width: 5vh;
-        border-radius: 50%;
-        border-color: #999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .line1, .line2 {
-            background-color:#999;
-            transition: all 200ms ease;
+        .line1,.line2 {
             height: 2.5vh;
-            width: 2px;
-            border-radius: 1px;
-            opacity: 1;
         }
-        .line1 {
-            transform: translateX(1px);
-        }
-        .line2 {
-            transform: translateX(-1px) rotate(90deg);
-        }
+    }
+}
+.circle {
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+    font-size: 2em;
+    transition: all 200ms ease;
+    border-radius: 50%;
+    border-color: #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .line1, .line2 {
+        background-color:#999;
+        transition: all 200ms ease;
+        width: 2px;
+        border-radius: 1px;
+        opacity: 1;
+    }
+    .line1 {
+        transform: translateX(1px);
+    }
+    .line2 {
+        transform: translateX(-1px) rotate(90deg);
     }
 }
 #branchForm {
@@ -132,10 +135,14 @@ main {
     align-content: space-between;
     align-items: center;
     div {
-        color: inherit;
         width: 25%;
         height: 100%;
         position: relative;
+    }
+}
+#branchForm, .taskForm {
+    div {
+        color: inherit;
         textarea, input {
             position: absolute;
             top:40%;
@@ -209,7 +216,7 @@ main {
         border: none;
         outline: none;
     }
-    #submitForm {
+    .submitForm {
         * {
             color: white;
             font-weight: 600;
@@ -234,9 +241,43 @@ main {
     padding: 3vh;
 }
 #tasks > div {
-    height: calc(70vh / 3);
-    width: stretch;
-    > div {
+    &, .carousel {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: stretch;
+        height: calc(70vh / 3);
+        > .circle {
+            height: 3vh;
+            width: 3vh;
+            margin: 2vh;
+            .line1,.line2 {
+                height: 2vh;
+                transition: all 200ms ease;
+            }
+            &:hover {
+                border-color: rgb(56, 177, 56) !important;
+            }
+        }
+        > .taskForm {
+            height: 100%;
+            width: 40%;
+            border-radius: 10px;
+            border: 2px solid #999;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            div {
+                margin: 1vh;
+                padding: 1vh;
+                height: 33%;
+                width: stretch;
+                position: relative;
+            }
+        }
+    }
+    > .branch {
         border: 2px solid #999;
         border-radius: 10px;
         height: 100%;

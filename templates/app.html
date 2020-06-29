@@ -18,10 +18,16 @@
 <section id="tasks">
     {% for branch in user.branches%}
     <div>
-        <div>
+        <div class="branch">
             <h2>{{ branch.branch }}</h2>
             <span>{{ branch.description }}</span>
             <span> {{ branch.deadline }}</span>
+        </div>
+        <div class="carousel">
+            <div class="circle">
+                <div class="line1" style="opacity:1;"></div>
+                <div class="line2"></div>
+            </div>
         </div>
     </div>
     {% endfor %}
@@ -51,7 +57,7 @@
                 <span>Deadline:</span>
             </label>
         </div>
-        <div id="submitForm">
+        <div class="submitForm">
             <button type="submit">Add goal</button>
         </div>
     </form>

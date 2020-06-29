@@ -55,7 +55,7 @@ main {
   font-size: 35px;
 }
 
-#welcome > div #submit, #welcome > div #submitForm {
+#welcome > div #submit, #welcome > div .submitForm {
   color: inherit;
   width: 100%;
   height: 8.5vh;
@@ -66,7 +66,7 @@ main {
   transition: opacity 200ms ease;
 }
 
-#welcome > div #submit *, #welcome > div #submitForm * {
+#welcome > div #submit *, #welcome > div .submitForm * {
   color: white !important;
   font-weight: 600;
   color: inherit;
@@ -80,11 +80,11 @@ main {
   outline: none;
 }
 
-#welcome > div #submit:hover, #welcome > div #submitForm:hover {
+#welcome > div #submit:hover, #welcome > div .submitForm:hover {
   opacity: 1;
 }
 
-#welcome > div #submit:hover *, #welcome > div #submitForm:hover * {
+#welcome > div #submit:hover *, #welcome > div .submitForm:hover * {
   cursor: pointer;
 }
 
@@ -115,11 +115,18 @@ main {
 #newBranch .circle {
   position: absolute;
   margin: 5vh;
+  height: 5vh;
+  width: 5vh;
+}
+
+#newBranch .circle .line1, #newBranch .circle .line2 {
+  height: 2.5vh;
+}
+
+.circle {
   font-size: 2em;
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
-  height: 5vh;
-  width: 5vh;
   border-radius: 50%;
   border-color: #999;
   display: -webkit-box;
@@ -133,29 +140,27 @@ main {
           align-items: center;
 }
 
-#newBranch .circle:hover {
+.circle:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.1);
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
 
-#newBranch .circle .line1, #newBranch .circle .line2 {
+.circle .line1, .circle .line2 {
   background-color: #999;
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
-  height: 2.5vh;
   width: 2px;
   border-radius: 1px;
   opacity: 1;
 }
 
-#newBranch .circle .line1 {
+.circle .line1 {
   -webkit-transform: translateX(1px);
           transform: translateX(1px);
 }
 
-#newBranch .circle .line2 {
+.circle .line2 {
   -webkit-transform: translateX(-1px) rotate(90deg);
           transform: translateX(-1px) rotate(90deg);
 }
@@ -194,28 +199,31 @@ main {
 }
 
 #branchForm div {
-  color: inherit;
   width: 25%;
   height: 100%;
   position: relative;
 }
 
-#branchForm div textarea, #branchForm div input {
+#branchForm div, .taskForm div {
+  color: inherit;
+}
+
+#branchForm div textarea, #branchForm div input, .taskForm div textarea, .taskForm div input {
   position: absolute;
   top: 40%;
   left: 0;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
-#branchForm div textarea {
+#branchForm div textarea, .taskForm div textarea {
   resize: none;
 }
 
-#branchForm div textarea, #branchForm div input, #branchForm div label {
+#branchForm div textarea, #branchForm div input, #branchForm div label, .taskForm div textarea, .taskForm div input, .taskForm div label {
   width: 95% !important;
 }
 
-#branchForm div#error {
+#branchForm div#error, .taskForm div#error {
   height: 5vh;
   background-color: #bb0000;
   display: -webkit-box;
@@ -229,12 +237,12 @@ main {
           justify-content: center;
 }
 
-#branchForm div#error * {
+#branchForm div#error *, .taskForm div#error * {
   color: white;
   font-weight: 800;
 }
 
-#branchForm div label {
+#branchForm div label, .taskForm div label {
   position: absolute;
   color: inherit;
   top: 0;
@@ -247,7 +255,7 @@ main {
   border-bottom: 1px solid #777;
 }
 
-#branchForm div label::after {
+#branchForm div label::after, .taskForm div label::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -257,7 +265,7 @@ main {
   border-bottom: 1px solid #3ad1fe;
 }
 
-#branchForm div label span {
+#branchForm div label span, .taskForm div label span {
   position: absolute;
   color: inherit;
   width: 100%;
@@ -267,20 +275,20 @@ main {
   transition: all 200ms ease;
 }
 
-#branchForm input:focus + label > span, #branchForm textarea:focus + label > span {
+#branchForm input:focus + label > span, #branchForm textarea:focus + label > span, .taskForm input:focus + label > span, .taskForm textarea:focus + label > span {
   font-size: 0.75em;
   color: #3ad1fe;
 }
 
-#branchForm input:valid + label > span, #branchForm textarea:valid + label > span {
+#branchForm input:valid + label > span, #branchForm textarea:valid + label > span, .taskForm input:valid + label > span, .taskForm textarea:valid + label > span {
   color: #3ad1fe;
 }
 
-#branchForm input:focus + label::after, #branchForm input:valid + label:after, #branchForm textarea:focus + label::after, #branchForm textarea:valid + label:after {
+#branchForm input:focus + label::after, #branchForm input:valid + label:after, #branchForm textarea:focus + label::after, #branchForm textarea:valid + label:after, .taskForm input:focus + label::after, .taskForm input:valid + label:after, .taskForm textarea:focus + label::after, .taskForm textarea:valid + label:after {
   opacity: 1;
 }
 
-#branchForm input, #branchForm button, #branchForm textarea {
+#branchForm input, #branchForm button, #branchForm textarea, .taskForm input, .taskForm button, .taskForm textarea {
   color: inherit;
   font-size: 1em;
   background: transparent;
@@ -293,7 +301,7 @@ main {
   outline: none;
 }
 
-#branchForm #submitForm {
+#branchForm .submitForm, .taskForm .submitForm {
   height: 100%;
   background-color: #3ad1fe;
   opacity: .75;
@@ -301,17 +309,17 @@ main {
   transition: opacity 200ms ease;
 }
 
-#branchForm #submitForm * {
+#branchForm .submitForm *, .taskForm .submitForm * {
   color: white;
   font-weight: 600;
   height: 100%;
 }
 
-#branchForm #submitForm:hover {
+#branchForm .submitForm:hover, .taskForm .submitForm:hover {
   opacity: 1;
 }
 
-#branchForm #submitForm:hover * {
+#branchForm .submitForm:hover *, .taskForm .submitForm:hover * {
   cursor: pointer;
 }
 
@@ -323,14 +331,69 @@ main {
   padding: 3vh;
 }
 
-#tasks > div {
-  height: calc(70vh / 3);
+#tasks > div, #tasks > div .carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   width: -webkit-fill-available;
   width: -moz-available;
   width: stretch;
+  height: calc(70vh / 3);
 }
 
-#tasks > div > div {
+#tasks > div > .circle, #tasks > div .carousel > .circle {
+  height: 3vh;
+  width: 3vh;
+  margin: 2vh;
+}
+
+#tasks > div > .circle .line1, #tasks > div > .circle .line2, #tasks > div .carousel > .circle .line1, #tasks > div .carousel > .circle .line2 {
+  height: 2vh;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+#tasks > div > .circle:hover, #tasks > div .carousel > .circle:hover {
+  border-color: #38b138 !important;
+}
+
+#tasks > div > .taskForm, #tasks > div .carousel > .taskForm {
+  height: 100%;
+  width: 40%;
+  border-radius: 10px;
+  border: 2px solid #999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#tasks > div > .taskForm div, #tasks > div .carousel > .taskForm div {
+  margin: 1vh;
+  padding: 1vh;
+  height: 33%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  position: relative;
+}
+
+#tasks > div > .branch {
   border: 2px solid #999;
   border-radius: 10px;
   height: 100%;
@@ -351,23 +414,23 @@ main {
   pointer-events: all;
 }
 
-#tasks > div > div, #tasks > div > div * {
+#tasks > div > .branch, #tasks > div > .branch * {
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
 }
 
-#tasks > div > div * {
+#tasks > div > .branch * {
   z-index: -1;
   pointer-events: none;
 }
 
-#tasks > div > div:hover {
+#tasks > div > .branch:hover {
   cursor: pointer;
   border-color: #b13838;
   opacity: .75;
 }
 
-#tasks > div > div:hover h2 {
+#tasks > div > .branch:hover h2 {
   color: #b13838;
   opacity: 1;
 }

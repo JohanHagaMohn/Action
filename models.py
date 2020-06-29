@@ -24,11 +24,10 @@ class Branches(UserMixin, db.Model):
     branch = db.Column(db.VARCHAR(64), unique=False, nullable=False)
     description = db.Column(db.VARCHAR(128), unique=False, nullable=False)
     deadline = db.Column(db.Date, unique=False, nullable=True)
-    tasks = db.relationship("Tasks", backref="Branches", lazy=True)
+    tasks = db.relationship("Tasks", backref="Branches", lazy="dynamic", cascade = "all, delete, delete-orphan")
 
-    def add_task(self, task, description, time):
-        db.session.add(Tasks(branch_id=self.id, task=task,
-                             description=description, time=time))
+    def add_task(self, task, duration):
+        db.session.add(Tasks(branch_id=self.id, task=task, duration=duration))
         db.session.commit()
     
     def complete(self):
@@ -42,8 +41,7 @@ class Tasks(UserMixin, db.Model):
     branch_id = db.Column(db.SmallInteger, db.ForeignKey(
         "branch.id"), nullable=False, unique=False)
     task = db.Column(db.VARCHAR(32), unique=False, nullable=False)
-    description = db.Column(db.VARCHAR(64), unique=False, nullable=False)
-    time = db.Column(db.SmallInteger, unique=False, nullable=True)
+    duration = db.Column(db.SmallInteger, unique=False, nullable=True)
     complete = db.Column(db.Boolean, unique=False,
                          nullable=False, default=False)
 

@@ -28,11 +28,15 @@ def app():
 @login_required
 def app_post():
     user = Users.query.filter_by(username=current_user.username).first()
-    if request.form:
+    print(request.json, request.json["task"])
+    if request.form.get("goal"):
         user.add_branch(request.form.get("goal"), request.form.get("description"), request.form.get("deadline"))
-    elif request.json["branch"]:
+    elif request.json:
         branch = user.branches.filter_by(branch=request.json["branch"]).first()
-        if branch:
-            branch.complete()
+        if request.json["task"]:
+            branch.add_task(request.json["task"], request.json["duration"])
+        else:
+            if branch:
+                branch.complete()
         return "True", 200
     return redirect(url_for('main.app'))

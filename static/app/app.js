@@ -44,4 +44,34 @@ window.addEventListener("DOMContentLoaded", () => {
             });
         })
     })
+    document.querySelectorAll(".carousel").forEach((e) => {
+        e.firstElementChild.addEventListener("click", () => {
+            const hline = e.lastElementChild.firstElementChild
+            const open = (hline.style.opacity == 1);
+            if (open) {
+                hline.style.opacity = 0;
+                e.insertAdjacentHTML("beforeend", '<form class="taskForm" action="/app" method="POST"><div><input type="text" name="task" autofocus="" maxlength="32" required /><label for="task"><span>Task:</span></label></div><div><input type="number" name="duration" autofocus="" min="0" required /><label for="duration"><span>Duration (minutes):</span></label></div><div class="submitForm"><button type="submit">Add task</button></div></form>')
+                e.lastElementChild.onsubmit = (form) => {
+                    form.preventDefault();
+                    const task = e.lastElementChild.firstElementChild.firstElementChild.value;
+                    const duration = e.lastElementChild.childNodes[1].firstElementChild.value;
+                    const branch = e.previousElementSibling.firstElementChild.innerHTML;
+                    $.ajax({
+                        type: "POST",
+                        url: "/app",
+                        data: JSON.stringify({ task: task, duration: duration, branch: branch }),
+                        contentType: 'application/json;charset=UTF-8',
+                        success: (resp) => {
+                            hline.style.opacity = 1;
+                            e.lastElementChild.remove();
+                            e.insertAdjacentHTML("afterbegin", `<div class="mcircle"></div><div class="circle"><h3>${task}</h3><span>${duration}</span></div>`)
+                        }
+                    });
+                }
+            } else {
+                e.children[e.children.length - 2].firstElementChild.style.opacity = 1;
+                e.lastElementChild.remove();
+            }
+        })
+    })
 })
