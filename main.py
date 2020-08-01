@@ -21,6 +21,7 @@ def about():
 @login_required
 def app():
     user = Users.query.filter_by(username=current_user.username).first()
+    print(user.branches.first())
     return render_template("app.html", user=user), 200
 
 
@@ -28,15 +29,18 @@ def app():
 @login_required
 def app_post():
     user = Users.query.filter_by(username=current_user.username).first()
-    print(request.json, request.json["task"])
     if request.form.get("goal"):
         user.add_branch(request.form.get("goal"), request.form.get("description"), request.form.get("deadline"))
     elif request.json:
         branch = user.branches.filter_by(branch=request.json["branch"]).first()
-        if request.json["task"]:
-            branch.add_task(request.json["task"], request.json["duration"])
-        else:
-            if branch:
-                branch.complete()
-        return "True", 200
+        if branch:
+            try:
+                branch.add_task(request.json["task"], request.json["duration"])
+            except KeyError:
+                try:
+                    task = branch.tasks.filter_by(task=request.json["task"]).first()
+                    task.complete()
+                except KeyError:
+                    branch.complete()
+            return "True", 200
     return redirect(url_for('main.app'))

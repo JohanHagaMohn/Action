@@ -42,9 +42,7 @@ class Tasks(UserMixin, db.Model):
         "branch.id"), nullable=False, unique=False)
     task = db.Column(db.VARCHAR(32), unique=False, nullable=False)
     duration = db.Column(db.SmallInteger, unique=False, nullable=True)
-    complete = db.Column(db.Boolean, unique=False,
-                         nullable=False, default=False)
 
     def complete(self):
-        self.complete = True
+        db.session.delete(self)
         db.session.commit()
